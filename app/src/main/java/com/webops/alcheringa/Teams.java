@@ -1,4 +1,4 @@
-package com.codefundo.alcheringa;
+package com.webops.alcheringa;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -8,26 +8,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
-DrawerLayout drawerLayout;
-NavigationView navigationView;
-ActionBarDrawerToggle toggle;
-
+public class Teams extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_teams);
         drawerLayout =findViewById(R.id.drawer);
         toggle=new ActionBarDrawerToggle(this,drawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
-
         navigationView=findViewById(R.id.nav);
         navigationView.setNavigationItemSelectedListener(this);
         toggle.syncState();
@@ -69,11 +65,11 @@ ActionBarDrawerToggle toggle;
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_home: return true;
+            case R.id.action_home:startActivity(new Intent(this, MainActivity.class)); return true;
 
             case R.id.action_events:startActivity(new Intent(this, Events.class)); return true;
 
-            case R.id.action_teams:startActivity(new Intent(this, Teams.class)); return true;
+            case R.id.action_teams: return true;
 
             case R.id.action_sponsers:startActivity(new Intent(this, Sponsers.class)); return true;
 

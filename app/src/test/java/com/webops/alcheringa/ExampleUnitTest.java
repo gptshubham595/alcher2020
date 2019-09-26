@@ -1,4 +1,4 @@
-package com.codefundo.alcheringa;
+package com.webops.alcheringa;
 
 import org.junit.Test;
 

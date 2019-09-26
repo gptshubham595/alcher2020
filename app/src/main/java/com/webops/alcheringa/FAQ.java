@@ -1,4 +1,4 @@
-package com.codefundo.alcheringa;
+package com.webops.alcheringa;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,14 +13,14 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class Sponsers extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+public class FAQ extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sponsers);
+        setContentView(R.layout.activity_faq);
         drawerLayout =findViewById(R.id.drawer);
         toggle=new ActionBarDrawerToggle(this,drawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
@@ -71,9 +71,9 @@ public class Sponsers extends AppCompatActivity  implements NavigationView.OnNav
 
             case R.id.action_teams:startActivity(new Intent(this, Teams.class)); return true;
 
-            case R.id.action_sponsers: return true;
+            case R.id.action_sponsers:startActivity(new Intent(this, Sponsers.class)); return true;
 
-            case R.id.action_faq:startActivity(new Intent(this, FAQ.class)); return true;
+            case R.id.action_faq:return true;
 
             case R.id.action_about:startActivity(new Intent(this, About.class)); return true;
 
