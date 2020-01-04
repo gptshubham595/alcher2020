@@ -6,106 +6,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".Login">
-<ImageView
-    android:layout_width="match_parent"
-    android:background="@drawable/home"
-    android:scaleType="fitXY"
-    android:layout_height="300dp"/>
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/home"
+        android:scaleType="fitXY" />
 
     <com.libizo.CustomEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:text="abc@gmail.com"
-        app:libIZO_setPrefix=" "
-        android:gravity="center"
-        app:libIZO_setBackgroundColor="#FFFFFF"
-        app:libIZO_setPrefixTextColor="#FF4081"
-        app:libIZO_clearIconTint="#8f1f15"
-        app:libIZO_setBorderColor="#8f1f15"
-        app:libIZO_setCursorColor="#ff0000"
-        android:textColor="#ff0000"
-        app:libIZO_setBorderView="true"
-        android:padding="8dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="220dp"
+        android:gravity="center"
+
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:id="@+id/lTextEmail"
+        android:hint="abc@gmail.com"
+        android:textColorHint="#C8FF0000"
+        android:textColor="#ff0000"
+        app:libIZO_clearIconTint="#8f1f15"
+        app:libIZO_setBackgroundColor="#FFFFFF"
+        app:libIZO_setBorderColor="#8f1f15"
+        app:libIZO_setBorderView="true"
         app:libIZO_setClearIconVisible="true"
         app:libIZO_setCornerRadius="20dp"
-        app:libIZO_setStrokeWidth="2dp"/>
+        app:libIZO_setCursorColor="#ff0000"
+        app:libIZO_setPrefix=" "
+        app:libIZO_setPrefixTextColor="#FF4081"
+        app:libIZO_setStrokeWidth="2dp" />
+
     <com.libizo.CustomEditText
+        android:id="@+id/lTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:text="123455688"
-        app:libIZO_setPrefix=" "
-        android:gravity="center"
-        app:libIZO_setBackgroundColor="#FFFFFF"
-        app:libIZO_setPrefixTextColor="#FF4081"
-        app:libIZO_clearIconTint="#8f1f15"
-        app:libIZO_setBorderColor="#8f1f15"
-        app:libIZO_setCursorColor="#ff0000"
-        android:textColor="#ff0000"
-        app:libIZO_setBorderView="true"
-        android:padding="8dp"
-        android:id="@+id/password"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="160dp"
+        android:gravity="center"
+
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColorHint="#C8FF0000"
+        android:hint="Password"
+        android:textColor="#ff0000"
+        app:libIZO_clearIconTint="#8f1f15"
+        app:libIZO_setBackgroundColor="@color/white"
+        app:libIZO_setBorderColor="#8f1f15"
+        app:libIZO_setBorderView="true"
         app:libIZO_setClearIconVisible="true"
         app:libIZO_setCornerRadius="20dp"
-        app:libIZO_setStrokeWidth="2dp"/>
+        app:libIZO_setCursorColor="#ff0000"
+        app:libIZO_setPrefix=" "
+        app:libIZO_setPrefixTextColor="#FF4081"
+        app:libIZO_setStrokeWidth="2dp" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:background="@drawable/shape"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="90dp"
+        android:background="@drawable/shape"
         android:text="Login"
-        android:id="@+id/login"
-        android:textStyle="bold"
         android:textColor="#27130D"
-        android:layout_height="40dp"/>
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="REGISTER"
-        android:id="@+id/register"
-        android:textStyle="bold"
-        android:textColor="#FFC107"
-        android:layout_height="40dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="                                              "
-        android:textStyle="bold"
-        android:textColor="#FF9800"
-        android:layout_height="40dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="FORGOT"
-        android:id="@+id/forgot"
-        android:textStyle="bold"
-        android:textColor="#FFC107"
-        android:layout_height="40dp"/>
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnLinkToRegisterScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="REGISTER"
+            android:textColor="#FFC107"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="                                              "
+            android:textColor="#FF9800"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="FORGOT"
+            android:textColor="#FFC107"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>
