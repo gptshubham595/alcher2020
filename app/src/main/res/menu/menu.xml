@@ -1,46 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_home"
-        android:orderInCategory="100"
-        android:title="Home"
-        android:icon="@drawable/ic_home_black_24dp"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_events"
-        android:orderInCategory="100"
-        android:title="Events"
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-        android:icon="@android:drawable/ic_dialog_dialer"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_teams"
-        android:orderInCategory="100"
-        android:title="Team"
-        android:icon="@android:drawable/ic_menu_manage"
-        app:showAsAction="never" />
-    <item android:title=""
-        android:orderInCategory="100">
-        <menu>
-    <item
-        android:id="@+id/action_sponsers"
-        android:orderInCategory="100"
-        android:title="Sponsers"
-        android:icon="@android:drawable/ic_input_get"
-        app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_faq"
-        android:orderInCategory="100"
-        android:title="ENQUIRY"
-        android:icon="@android:drawable/ic_dialog_alert"
-        app:showAsAction="never" />
+        android:id="@+id/menuSettings"
+        android:title="Settings"
+        />
+
     <item
-        android:id="@+id/action_about"
-        android:orderInCategory="100"
-        android:title="About"
-        android:icon="@android:drawable/ic_menu_info_details"
-        app:showAsAction="never" />
-        </menu></item>
+        android:id="@+id/menuLogout"
+        android:title="Logout"
+        />
+
 </menu>

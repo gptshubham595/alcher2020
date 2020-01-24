@@ -1,0 +1,67 @@
+{
+  "schedule": [
+    {
+      "id": 1,
+      "day": "Day 1",
+      "date": "07/01/20",
+      "event": [
+        {
+          "id": 1,
+          "event_name": "Haute Couture",
+          "venue": "Hall 1",
+          "start_time": "13:00",
+          "end_time": "14:30"
+        },
+        {
+          "id": 1,
+          "event_name": "states of dress",
+          "venue": "Hall 2",
+          "start_time": "17:00",
+          "end_time": "18:30"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "day": "Day 2",
+      "date": "08/01/20",
+      "event": [
+        {
+          "id": 1,
+          "event_name": "Rock-O-Phonix",
+          "venue": "Hall 2",
+          "start_time": "14:00",
+          "end_time": "14:30"
+        },
+        {
+          "id": 1,
+          "event_name": "Mr & Ms Alcheringa",
+          "venue": "Hall 1",
+          "start_time": "18:00",
+          "end_time": "19:30"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "day": "Day 3",
+      "date": "09/01/20",
+      "event": [
+        {
+          "id": 1,
+          "event_name": "Rock-O-Phonix",
+          "venue": "Hall 2",
+          "start_time": "14:00",
+          "end_time": "14:30"
+        },
+        {
+          "id": 1,
+          "event_name": "Mr & Ms Alcheringa",
+          "venue": "Hall 1",
+          "start_time": "18:00",
+          "end_time": "19:30"
+        }
+      ]
+    }
+  ]
+}

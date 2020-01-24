@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="white">#ffffff</color>
-    <color name="colorPrimary2">#DF091C3D</color>
+    <color name="colorPrimary">#2b263c</color>
+    <color name="colorPrimaryDark">#2b263c</color>
+    <color name="colorAccent">#1d1932</color>
+    <color name="white">#ffff</color>
+    <color name="black">#000</color>
+    <color name="text_color_grey">#6f6f6f</color>
+    <color name="event_color">#e3a532</color>
+    <color name="delete_bg_dark">#504d60</color>
+
+    <!--<color name="colorPrimaryLight">#fff</color>
+    <color name="colorPrimaryDarkLight">#ffff</color>
+    <color name="colorAccentLight">#f4f4f4</color>-->
 </resources>

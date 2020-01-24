@@ -1,0 +1,28 @@
+{
+  "team": [
+    {
+      "id": 1,
+      "name": "Priyanshu Jain",
+      "code": "PRI-5523",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "name": "Alex",
+      "code": "ALE-5524",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "Arjun patel",
+      "code": "ARJ-5525",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "name": "Sunil Thatal",
+      "code": "SUN-5526",
+      "image": ""
+    }
+  ]
+}

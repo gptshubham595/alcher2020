@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".authentication.ChangePass">
+    <ImageView
+        android:layout_width="300dp"
+        android:id="@+id/logo"
+        android:src="@drawable/logo_light"
+        android:layout_centerHorizontal="true"
+        android:layout_height="200dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_below="@id/logo"
+        android:id="@+id/username"
+        app:passwordToggleEnabled="true"
+        android:padding="8dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:id="@+id/editTextOtp"
+            android:hint="Enter OTP SENT"
+            android:textColor="?colorPrimary"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:id="@+id/pas"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        app:passwordToggleEnabled="true"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/username"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColorHint="#68FF0000"
+            android:hint="New Password"
+            android:gravity="center"
+            android:textColor="?colorPrimary"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:id="@+id/cnfpas"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/pas"
+        app:passwordToggleEnabled="true"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/rTextCnfPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColorHint="#68FF0000"
+            android:hint="Confirm Password"
+            android:gravity="center"
+            android:textColor="?colorPrimary"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonChange"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@id/cnfpas"
+        android:background="?colorPrimary"
+        android:text="Change Password"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonChange"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Or Login here"
+            android:textColor="?colorPrimary"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>
