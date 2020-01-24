@@ -1,19 +1,16 @@
 package com.app.alcheringa2020.authentication;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -28,19 +25,22 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class Verify extends AppCompatActivity {
-AppCompatButton buttonlogin;
-TextView sendagain;
-EditText editTextOtp;
+    AppCompatButton buttonlogin;
+    TextView sendagain;
+    EditText editTextOtp;
     private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify);
 
-        editTextOtp=findViewById(R.id.editTextOtp);
-        sendagain=findViewById(R.id.sendOtpAgain);
-        buttonlogin=findViewById(R.id.buttonLogin);
+        editTextOtp = findViewById(R.id.editTextOtp);
+        sendagain = findViewById(R.id.sendOtpAgain);
+        buttonlogin = findViewById(R.id.buttonLogin);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
@@ -50,8 +50,9 @@ EditText editTextOtp;
             @Override
             public void onClick(View v) {
                 final String otp = editTextOtp.getText().toString().trim();
-                if(TextUtils.isEmpty(otp) || otp.length()<6){editTextOtp.setError("Enter Correct OTP");}
-                else{
+                if (TextUtils.isEmpty(otp) || otp.length() < 6) {
+                    editTextOtp.setError("Enter Correct OTP");
+                } else {
                     verifyuser();
                 }
             }
@@ -65,6 +66,7 @@ EditText editTextOtp;
         });
 
     }
+
     private void verifyuser() {
         final String username = getIntent().getStringExtra("username");
 
@@ -84,7 +86,7 @@ EditText editTextOtp;
                             JSONObject jsonObject = new JSONObject(response);
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
 
-                            if(!jsonObject.getBoolean("error")) {
+                            if (!jsonObject.getBoolean("error")) {
                                 SharedPrefManager.getInstance(getApplicationContext())
                                         .userVerified(
                                                 jsonObject.getString("verified")
@@ -93,7 +95,8 @@ EditText editTextOtp;
                                 Intent i = new Intent(Verify.this, LoginActivity.class);
                                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(i);
-                            }else{
+                                CustomIntent.customType(Verify.this, "fadein-to-fadeout");
+                            } else {
                                 Toast.makeText(Verify.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }
 
@@ -144,9 +147,9 @@ EditText editTextOtp;
                             JSONObject jsonObject = new JSONObject(response);
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
 
-                            if(!jsonObject.getBoolean("error")) {
+                            if (!jsonObject.getBoolean("error")) {
                                 Toast.makeText(Verify.this, "Sent", Toast.LENGTH_SHORT).show();
-                            }else{
+                            } else {
                                 Toast.makeText(Verify.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {

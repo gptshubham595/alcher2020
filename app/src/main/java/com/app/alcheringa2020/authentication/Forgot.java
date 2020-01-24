@@ -1,16 +1,16 @@
 package com.app.alcheringa2020.authentication;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -25,12 +25,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class Forgot extends AppCompatActivity {
-    private EditText  editTextEmail,editTextUsername;
+    private EditText editTextEmail, editTextUsername;
     private AppCompatButton buttonForgot;
     private ProgressDialog progressDialog;
 
-    private TextView textViewLogin;
+    private LinearLayout textViewLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +54,10 @@ public class Forgot extends AppCompatActivity {
                 final String email = editTextEmail.getText().toString().trim();
                 final String username = editTextUsername.getText().toString().trim();
 
-                if(TextUtils.isEmpty(email))editTextEmail.setError("Enter Email");
-                if(TextUtils.isEmpty(username))editTextUsername.setError("Enter Username");
+                if (TextUtils.isEmpty(email)) editTextEmail.setError("Enter Email");
+                if (TextUtils.isEmpty(username)) editTextUsername.setError("Enter Username");
 
-                if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(username)) {
+                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(username)) {
                     editTextEmail.setError(null);
                     editTextUsername.setError(null);
                     forgot();
@@ -66,6 +68,7 @@ public class Forgot extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Forgot.this, LoginActivity.class));
+                CustomIntent.customType(Forgot.this, "fadein-to-fadeout");
             }
         });
     }
@@ -87,14 +90,16 @@ public class Forgot extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                            if(!jsonObject.getBoolean("error")) {
-                                Intent i=new Intent(Forgot.this,ChangePass.class);
-                                i.putExtra("username",username);
-                                i.putExtra("email",email);
+                            if (!jsonObject.getBoolean("error")) {
+                                Intent i = new Intent(Forgot.this, ChangePass.class);
+                                i.putExtra("username", username);
+                                i.putExtra("email", email);
                                 startActivity(i);
+                                CustomIntent.customType(Forgot.this, "fadein-to-fadeout");
 
-                            }else{
-                                startActivity(new Intent(Forgot.this,LoginActivity.class));
+                            } else {
+                                startActivity(new Intent(Forgot.this, LoginActivity.class));
+                                CustomIntent.customType(Forgot.this, "fadein-to-fadeout");
                                 Toast.makeText(Forgot.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }
 

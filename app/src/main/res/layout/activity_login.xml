@@ -5,30 +5,42 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".authentication.LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/back"
+        android:layout_marginTop="-60dp"
+        android:layout_marginBottom="-10dp"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"/>
+
     <ImageView
         android:layout_width="300dp"
         android:id="@+id/logo"
-        android:src="@drawable/logo_light"
+        android:src="@drawable/alcher"
         android:layout_centerHorizontal="true"
         android:layout_height="200dp"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="50dp"
-        android:gravity="center"
+        android:padding="8dp"
         android:layout_below="@id/logo"
         android:id="@+id/username"
-        android:padding="8dp"
+        app:hintTextColor="#ffffff"
+        android:hint="Username"
         android:layout_height="wrap_content">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:id="@+id/editTextUsername"
-            android:gravity="center"
-            android:hint="Username"
-
+            android:paddingLeft="20dp"
+            android:textColorHint="?colorPrimary"
+            android:background="@drawable/shape"
+            android:backgroundTint="#B0FFFFFF"
             android:textColor="?colorPrimary"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -44,72 +56,98 @@
         app:passwordToggleEnabled="true"
         android:layout_below="@id/username"
         android:gravity="center"
+        app:hintTextColor="#ffffff"
+        android:hint="Password"
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:gravity="center"
-            android:textColorHint="#68FF0000"
-            android:hint="Password"
+            android:paddingLeft="20dp"
+            android:textColorHint="?colorPrimary"
+            android:background="@drawable/shape"
+            android:backgroundTint="#B0FFFFFF"
             android:textColor="?colorPrimary"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/btnLinkToForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/pas"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="28dp"
+        android:text="Forgot Password ? "
+        android:textColor="#Eab045"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_below="@id/pas"
-        android:background="?colorPrimary"
+        android:background="@drawable/shape"
         android:text="Login"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#Eab045"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Use Social Login"
+        android:layout_below="@id/buttonLogin"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/social"
+        android:layout_margin="30dp"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/social"
+        android:id="@+id/lin"
+        android:layout_marginTop="-20dp"
+        android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="55dp"
+        android:src="@drawable/fb"
+        android:id="@+id/fb_sign_in_button"
+
+        android:layout_height="50dp"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonLogin"
-        android:layout_marginTop="60dp"
+        android:layout_below="@id/lin"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:id="@+id/btnLinkToRegisterScreen"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/btnLinkToRegisterScreen"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="New User? Register here"
-            android:textColor="?colorPrimary"
-            android:textStyle="bold" />
-
+            android:textSize="15sp"
+            android:text="Dont't have an account?"
+            android:textColor="@color/white"
+             />
         <TextView
-            android:id="@+id/btnLinkToForgot"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-
-            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_marginRight="8dp"
-            android:text="Forgot Password"
-            android:textColor="?colorPrimary"
+            android:text=" Register here"
+            android:textSize="18sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/btnLinkToevent"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:text="Get Event"
-            android:textColor="?colorPrimary"
-            android:textStyle="bold" />
-
     </LinearLayout>
 
 </RelativeLayout>

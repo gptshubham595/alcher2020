@@ -5,9 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,14 +25,16 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
 
-    private EditText editTextUsername, editTextEmail, editTextPassword,rTextCnfPassword;
+    private EditText editTextUsername, editTextEmail, editTextPassword, rTextCnfPassword;
     private AppCompatButton buttonRegister;
     private ProgressDialog progressDialog;
-    boolean go=false;
-    private TextView textViewLogin;
+    boolean go = false;
+    private LinearLayout textViewLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
-        rTextCnfPassword=findViewById(R.id.rTextCnfPassword);
+        rTextCnfPassword = findViewById(R.id.rTextCnfPassword);
         textViewLogin = findViewById(R.id.textViewLogin);
 
         buttonRegister = findViewById(R.id.buttonRegister);
@@ -75,11 +76,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
 
-                            if(!jsonObject.getBoolean("error")) {
-                                Intent i=new Intent(Register.this,Verify.class);
-                                i.putExtra("username",username);
+                            if (!jsonObject.getBoolean("error")) {
+                                Intent i = new Intent(Register.this, Verify.class);
+                                i.putExtra("username", username);
                                 startActivity(i);
-                            }else{
+                                CustomIntent.customType(Register.this, "fadein-to-fadeout");
+                            } else {
                                 Toast.makeText(Register.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }
 
@@ -112,31 +114,31 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        if (view == buttonRegister)
-        {
+        if (view == buttonRegister) {
             final String email = editTextEmail.getText().toString().trim();
             final String username = editTextUsername.getText().toString().trim();
             final String password = editTextPassword.getText().toString().trim();
-            final String cnfpassword=rTextCnfPassword.getText().toString().trim();
+            final String cnfpassword = rTextCnfPassword.getText().toString().trim();
 
-            if(TextUtils.isEmpty(email))editTextEmail.setError("Enter Email");
-            if(TextUtils.isEmpty(username))editTextUsername.setError("Enter Username");
-            if(TextUtils.isEmpty(password))editTextPassword.setError("Enter Password");
-            if(TextUtils.isEmpty(cnfpassword))rTextCnfPassword.setError("Enter Password");
+            if (TextUtils.isEmpty(email)) editTextEmail.setError("Enter Email");
+            if (TextUtils.isEmpty(username)) editTextUsername.setError("Enter Username");
+            if (TextUtils.isEmpty(password)) editTextPassword.setError("Enter Password");
+            if (TextUtils.isEmpty(cnfpassword)) rTextCnfPassword.setError("Enter Password");
 
-            if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(cnfpassword)){
-                if(cnfpassword.equals(password)){
+            if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(cnfpassword)) {
+                if (cnfpassword.equals(password)) {
                     editTextEmail.setError(null);
                     editTextUsername.setError(null);
                     editTextPassword.setError(null);
                     rTextCnfPassword.setError(null);
                     registerUser();
-                }else{
+                } else {
                     rTextCnfPassword.setError("Password Not Matched!!");
                 }
             }
         }
         if (view == textViewLogin)
             startActivity(new Intent(this, LoginActivity.class));
+        CustomIntent.customType(this, "fadein-to-fadeout");
     }
 }
