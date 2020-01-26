@@ -54,10 +54,9 @@ public class Forgot extends AppCompatActivity {
                 final String email = editTextEmail.getText().toString().trim();
                 final String username = editTextUsername.getText().toString().trim();
 
-                if (TextUtils.isEmpty(email)) editTextEmail.setError("Enter Email");
-                if (TextUtils.isEmpty(username)) editTextUsername.setError("Enter Username");
+                if (TextUtils.isEmpty(email) && TextUtils.isEmpty(username)){ editTextEmail.setError("Enter Email"); editTextUsername.setError("Enter Username");}
 
-                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(username)) {
+                if ((!TextUtils.isEmpty(email) && TextUtils.isEmpty(username)) || (TextUtils.isEmpty(email) && !TextUtils.isEmpty(username))) {
                     editTextEmail.setError(null);
                     editTextUsername.setError(null);
                     forgot();

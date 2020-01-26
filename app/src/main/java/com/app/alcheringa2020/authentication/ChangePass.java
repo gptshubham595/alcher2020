@@ -114,8 +114,18 @@ public class ChangePass extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("username", getIntent().getStringExtra("username"));
-                params.put("email", getIntent().getStringExtra("email"));
+                String username="";
+                String email="";
+
+                try {
+                    username = getIntent().getStringExtra("username");
+                    email = getIntent().getStringExtra("email");
+                }catch(Exception e ){
+                    e.printStackTrace();
+                }
+
+                params.put("username", username);
+                params.put("email", email);
                 params.put("otp", otp);
                 params.put("password", password);
                 return params;

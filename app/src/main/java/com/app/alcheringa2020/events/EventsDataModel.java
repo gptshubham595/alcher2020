@@ -18,9 +18,10 @@ import java.util.ArrayList;
  * Created by Jiaur Rahman on 06-Jan-20.
  */
 public class EventsDataModel {
-
+    String eventsdata="";
     public static ArrayList<ProgrammeModel> programmeModelArrayList(Context context) {
         ArrayList<ProgrammeModel> programmeModelArrayList = new ArrayList<>();
+
         try {
             JSONObject jsonObject = CommonFunctions.loadAssetsJsonObj("item.json", context);
             JSONArray proJsonArray = jsonObject.getJSONArray("programme");

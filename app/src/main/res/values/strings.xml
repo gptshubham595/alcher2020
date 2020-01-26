@@ -34,5 +34,8 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_maps">Map</string>
-    <string name="facebook_app_id">596028327096505</string>
+
+    <string name="facebook_app_id">1648547895459766</string>
+    <string name="fb_login_protocol_scheme">fb1648547895459766</string>
+
 </resources>

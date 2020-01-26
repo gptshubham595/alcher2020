@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 
+import com.app.alcheringa2020.authentication.FBLogin;
 import com.app.alcheringa2020.authentication.LoginActivity;
 import com.app.alcheringa2020.base.BaseActivity;
 
@@ -21,8 +22,6 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -34,7 +33,8 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void mainMethod() {
-        startActivity(new Intent(this, LoginActivity.class));
+//        startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 

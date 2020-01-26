@@ -7,6 +7,7 @@ public class Constants {
 //    https://www.alcheringa.in/Android/v1/registerUser.php
     public static final String URL_REGISTER = ROOT_URL + "registerUser.php";
     public static final String URL_LOGIN = ROOT_URL + "userLogin.php";
+    public static final String URL_LOGINFB = ROOT_URL + "fb_login.php";
     public static final String URL_Forgot    = ROOT_URL + "forgot.php";
     public static final String URL_Verify    = ROOT_URL + "verify.php";
     public static final String URL_Change    = ROOT_URL + "changepass.php";
