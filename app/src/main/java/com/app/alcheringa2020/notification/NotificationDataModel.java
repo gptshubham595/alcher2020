@@ -35,8 +35,7 @@ public class NotificationDataModel {
                     JSONObject notidetailObject = notiArray.getJSONObject(j);
                     int notiId = notidetailObject.getInt("id");
                     String message = notidetailObject.getString("message");
-                    notiDetailModelArrayList.add(new NotiDetailModel(notiId, message));
-
+                    notiDetailModelArrayList.add(new NotiDetailModel(notiId, message,"dance"));
                 }
                 notificationModelArrayList.add(new NotificationModel(id, day, date, notiDetailModelArrayList));
 

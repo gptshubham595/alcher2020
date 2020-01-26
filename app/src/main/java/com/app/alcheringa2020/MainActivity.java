@@ -1,7 +1,10 @@
 package com.app.alcheringa2020;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,6 +24,7 @@ import com.app.alcheringa2020.base.BaseActivity;
 import com.app.alcheringa2020.events.EventsFragment;
 import com.app.alcheringa2020.external.PrefManager;
 import com.app.alcheringa2020.feed.FeedFragment;
+import com.app.alcheringa2020.map.MapList;
 import com.app.alcheringa2020.notification.NotificationFragment;
 import com.app.alcheringa2020.profile.ProfileFragment;
 import com.app.alcheringa2020.schedule.MyScheduleFragment;
@@ -28,6 +32,11 @@ import com.app.alcheringa2020.schedule.ScheduleFragment;
 import com.app.alcheringa2020.search.SearchActivity;
 import com.app.alcheringa2020.support.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -38,12 +47,39 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public static ImageView main_logo, noti_image, profile_image, back_image, search_image, add_image, fav_image;
     public static TextView nav_title;
     public static RelativeLayout noti_rlt;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("mohan");
+    FloatingActionButton floatingActionButton;
+    public static final String CHANNEL_ID = "mohan";
+    private static final String CHANNEL_NAME = "mohan";
+    private static final String CHANNEL_DESC = "mohan notification";
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription(CHANNEL_DESC);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        FirebaseMessaging.getInstance().subscribeToTopic("music");
+        FirebaseMessaging.getInstance().subscribeToTopic("game");
+        FirebaseMessaging.getInstance().subscribeToTopic("dance");
+        FirebaseMessaging.getInstance().subscribeToTopic("fineart");
+        FirebaseMessaging.getInstance().subscribeToTopic("general");
+        floatingActionButton = findViewById(R.id.map_floating);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MapList.class));
+            }
+        });
+
         search_image = findViewById(R.id.search_image);
         back_image = findViewById(R.id.back_image);
         noti_image = findViewById(R.id.noti_image);
@@ -88,6 +124,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 //                    setFragment(fragment);
 //                    nav_title.setText(R.string.profile);
 //                    showHide();
+                    finish();
                     Intent intent = new Intent(context, ProfileActivity.class);
                     startActivity(intent);
                 }

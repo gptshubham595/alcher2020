@@ -12,15 +12,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="?colorPrimary"
+            android:paddingTop="20sp"
+            android:paddingBottom="10sp"
+            android:background="#E6E2E2"
             android:orientation="vertical"
-            android:padding="20dp">
+            >
 
             <TextView
                 style="@style/textBold"
                 android:textColor="?colorDarkMode"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="10sp"
                 android:layout_height="wrap_content"
                 android:text="new this year" />
 
@@ -31,22 +33,7 @@
                 android:layout_marginTop="20dp"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="20dp"
-            android:background="?colorPrimary">
 
-            <TextView
-                style="@style/textBold"
-                android:textColor="?colorDarkMode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="connect to facebook" />
-        </LinearLayout>
     </LinearLayout>
 
 

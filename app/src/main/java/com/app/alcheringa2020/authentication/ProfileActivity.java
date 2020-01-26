@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -22,8 +23,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
+import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
 
 import java.io.File;
@@ -49,7 +52,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("Profile");
 
         if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -113,9 +120,12 @@ public class ProfileActivity extends AppCompatActivity {
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
                     fos.flush();
                     fos.close();
+
                 } catch (java.io.IOException e) {
                     e.printStackTrace();
                 }
+            }else{
+                Log.d("path",file.toString()+" exist already");
             }
         }
     }
@@ -130,7 +140,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 Log.v("TAG","Permission is revoked");
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-                return false;
+                return true;
             }
         }
         else { //permission is automatically granted on sdk<23 upon installation
@@ -146,5 +156,14 @@ public class ProfileActivity extends AppCompatActivity {
             Log.v("TAG","Permission: "+permissions[0]+ "was "+grantResults[0]);
             //resume tasks needing this permission
         }
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        if(id==android.R.id.home){
+            finish();
+            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -12,7 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -61,9 +64,10 @@ public class ProfileFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragment_container = container;
+        view = inflater.inflate(R.layout.fragment_profile, container, false);
         context = getActivity().getApplicationContext();
 
-        view = inflater.inflate(R.layout.fragment_profile, container, false);
+
         team_members_lyt = view.findViewById(R.id.team_members_lyt);
         profile_image = view.findViewById(R.id.profile_image);
         themeRlt = view.findViewById(R.id.themeRlt);
@@ -131,6 +135,15 @@ public class ProfileFragment extends BaseFragment {
         });
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+        if(id==android.R.id.home){
+//            finish();
+            replaceFragment(new FeedFragment());
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     public void replaceFragment(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.container, fragment);
@@ -140,5 +153,7 @@ public class ProfileFragment extends BaseFragment {
         MainActivity.noti_rlt.setVisibility(View.VISIBLE);
         MainActivity.add_image.setVisibility(View.VISIBLE);
     }
+
+
 
 }

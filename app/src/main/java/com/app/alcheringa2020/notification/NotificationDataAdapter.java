@@ -60,8 +60,7 @@ public class NotificationDataAdapter extends RecyclerView.Adapter<NotificationDa
         NotificationChildAdapter notificationChildAdapter = new NotificationChildAdapter(mContext, notificationModel.getNotiDetailModelArrayList());
         holder.rv_child.setLayoutManager(new LinearLayoutManager(mContext));
         holder.rv_child.setAdapter(notificationChildAdapter);
-        enableSwipeToDeleteAndUndo(notificationChildAdapter, holder);
-
+//        enableSwipeToDeleteAndUndo(notificationChildAdapter, holder);
         Typeface typeface = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "font/exo_regular.ttf");
         holder.title_text.setTypeface(typeface);
     }

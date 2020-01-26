@@ -40,7 +40,7 @@
     <style name="LightAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#ffff</item>
-        <item name="colorPrimaryDark">#ffff</item>
+        <item name="colorPrimaryDark">#ACA7A7</item>
         <item name="colorAccent">#f4f4f4</item>
         <item name="colorDarkMode">@color/colorPrimary</item>
         <item name="android:fontFamily">@font/custom_font</item>

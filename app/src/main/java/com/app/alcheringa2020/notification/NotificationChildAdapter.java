@@ -30,13 +30,16 @@ public class NotificationChildAdapter extends RecyclerView.Adapter<NotificationC
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView eventTxt;
+        public TextView noti;
+        public TextView eventTxt,time;
         LinearLayout timeLyt;
 
         public ViewHolder(View v) {
             super(v);
+            noti = (TextView)v.findViewById(R.id.venueTxt);
             eventTxt = (TextView) v.findViewById(R.id.eventTxt);
             timeLyt = (LinearLayout) v.findViewById(R.id.timeLyt);
+            time = v.findViewById(R.id.timeTxt);
         }
     }
 
@@ -57,9 +60,11 @@ public class NotificationChildAdapter extends RecyclerView.Adapter<NotificationC
     @Override
     public void onBindViewHolder(final NotificationChildAdapter.ViewHolder holder, final int position) {
         NotiDetailModel notiDetailModel = notiDetailModelArrayList.get(position);
-        holder.eventTxt.setText(notiDetailModel.getMessage());
-        holder.timeLyt.setVisibility(View.GONE);
-        holder.eventTxt.setTextColor(ContextCompat.getColor(mContext,R.color.white));
+        holder.noti.setText(notiDetailModel.getMessage());
+        holder.eventTxt.setText(notiDetailModel.getTitle());
+        holder.time.setVisibility(View.GONE);
+//        holder.timeLyt.setVisibility(View.GONE);
+//        holder.eventTxt.setTextColor(ContextCompat.getColor(mContext,R.color.white));
 
         Typeface typeface = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "font/exo_regular.ttf");
         holder.eventTxt.setTypeface(typeface);

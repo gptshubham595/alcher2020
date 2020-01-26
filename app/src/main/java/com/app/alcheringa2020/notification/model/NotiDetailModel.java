@@ -5,11 +5,12 @@ package com.app.alcheringa2020.notification.model;
  */
 public class NotiDetailModel {
     int id;
-    String message;
+    String message,title;
 
-    public NotiDetailModel(int id, String message) {
+    public NotiDetailModel(int id, String message,String title) {
         this.id = id;
         this.message = message;
+        this.title = title;
     }
 
     public int getId() {
@@ -26,5 +27,13 @@ public class NotiDetailModel {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
