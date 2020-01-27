@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,10 +70,10 @@
             <TextView
                 android:id="@+id/nav_title"
                 style="@style/textBold"
-                android:textColor="?colorDarkMode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="?colorDarkMode"
                 android:textSize="20sp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -120,6 +122,7 @@
                     android:padding="8dp"
                     android:src="@drawable/ic_add_dark"
                     android:visibility="gone" />
+
                 <ImageView
                     android:id="@+id/fav_image"
                     android:layout_width="match_parent"
@@ -136,10 +139,12 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_height="0dp"
         android:background="?colorAccent"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView" />
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/map_floating"
@@ -163,6 +168,8 @@
         app:itemTextColor="?colorDarkMode"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
