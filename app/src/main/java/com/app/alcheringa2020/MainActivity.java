@@ -250,6 +250,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         switch (menuItem.getItemId()) {
             case R.id.nav_feed:
                 feedFragment();
+
                 break;
             case R.id.nav_events:
                 fragment = EventsFragment.newInstance(context);
