@@ -33,6 +33,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.FirebaseApp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        FirebaseApp.initializeApp(this);
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -150,7 +152,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     SharedPrefManager.getInstance(LoginActivity.this).isLogin(1,fname,email);
 
                     Intent i=new Intent(LoginActivity.this, MainActivity.class);
-                    i.putExtra("img_url",img);
+//                    i.putExtra("img_url",img);
+                    Toast.makeText(LoginActivity.this, ""+img, Toast.LENGTH_SHORT).show();
                     startActivity(i);
                     CustomIntent.customType(LoginActivity.this, "fadein-to-fadeout");
 
@@ -169,7 +172,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void userLogin2(final String email, final String fb_id) {
         int index=email.indexOf('@');
-        final String username=email.substring(0,index-1);
+        final String username=email.substring(0,index);
         progressDialog.setMessage("Loggin In user...");
         progressDialog.show();
 

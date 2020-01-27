@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="?colorAccent"
     android:orientation="vertical">
 
     <include
@@ -13,8 +13,9 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_main"
-        android:layout_marginBottom="60dp">
+        android:layout_below="@+id/toolbar_main">
+<!--        android:layout_marginBottom="60dp"-->
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardBackgroundColor="?colorPrimary">
-
                 <LinearLayout
                     android:id="@+id/ruleLyt"
                     android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:visibility="gone"></androidx.recyclerview.widget.RecyclerView>
+                        android:visibility="gone"/>
                 </LinearLayout>
 
 
@@ -199,7 +199,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:visibility="gone"></androidx.recyclerview.widget.RecyclerView>
+                        android:visibility="gone"/>
                 </LinearLayout>
 
 
@@ -209,6 +209,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/registerLyt"
         android:layout_width="match_parent"
         android:layout_height="60dp"

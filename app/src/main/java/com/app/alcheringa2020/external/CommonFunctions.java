@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,9 +44,25 @@ public class CommonFunctions {
                 e.printStackTrace();
             }
         }
+        Log.d("ARRAY====", String.valueOf(array));
         return array;
 
     }
+
+    public static JSONObject loadAssetsJsonObj2(String event) {
+        JSONObject array = null;
+
+        try {
+            array = new JSONObject(event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Log.d("ARRAY====", String.valueOf(array));
+        return array;
+
+    }
+
 
     public static boolean isInternetOn(Context mContext) {
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -93,6 +93,53 @@
           ]
         }
       ]
+    },
+    {
+      "id": 3,
+      "day": "Day 2",
+      "date": "07/01/20",
+      "venue": [
+        {
+          "id": 1,
+          "venue_name": "Hall 3",
+          "event": [
+            {
+              "id": 1,
+              "event_name": "Rock-O-Phonix",
+              "start_time": "14:00",
+              "end_time": "15:00",
+              "venue_name": "Hall 1"
+            },
+            {
+              "id": 1,
+              "event_name": "event1",
+              "start_time": "16:00",
+              "end_time": "17:00",
+              "venue_name": "Hall 1"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "venue_name": "Hall 4",
+          "event": [
+            {
+              "id": 1,
+              "event_name": "event0",
+              "start_time": "14:00",
+              "end_time": "15:00",
+              "venue_name": "Hall 2"
+            },
+            {
+              "id": 1,
+              "event_name": "event1",
+              "start_time": "16:00",
+              "end_time": "17:00",
+              "venue_name": "Hall 2"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

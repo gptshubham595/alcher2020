@@ -21,6 +21,19 @@
         <item name="search_image">@drawable/ic_search_dark</item>
         <item name="add_image">@drawable/ic_add_dark</item>
     </style>
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorDarkMode">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/custom_font</item>
+        <item name="main_logo">@drawable/logo_dark</item>
+        <item name="arrow_back">@drawable/ic_arrow_back_dark</item>
+        <item name="notification_image">@drawable/ic_notification_dark</item>
+        <item name="search_image">@drawable/ic_search_dark</item>
+        <item name="add_image">@drawable/ic_add_dark</item>
+    </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

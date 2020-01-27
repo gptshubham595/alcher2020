@@ -1,6 +1,7 @@
 package com.app.alcheringa2020.events;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.app.alcheringa2020.external.CommonFunctions;
 import com.app.alcheringa2020.events.model.ItemModel;
@@ -13,18 +14,62 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Jiaur Rahman on 06-Jan-20.
  */
 public class EventsDataModel {
-    String eventsdata="";
+
     public static ArrayList<ProgrammeModel> programmeModelArrayList(Context context) {
         ArrayList<ProgrammeModel> programmeModelArrayList = new ArrayList<>();
 
+        String event="{\"programme\": [{" +
+                "          \"id\": 1," +
+                "          \"category\": \"Vogue\"," +
+                "          \"image\": \"\"," +
+                "          \"item\": [" +
+                "            {" +
+                "              \"id\": 1," +
+                "              \"item\": \"Haute Couture\"," +
+                "              \"image\": \"\"," +
+                "              \"competition\": \"Fashion Designing Competition\"," +
+                "              \"bounty\": \"400\"," +
+                "              \"description\": \"Ever felt \"," +
+                "              \"rules\": [" +
+                "                {" +
+                "                  \"id\": 1," +
+                "                  \"rule\": \"Every team \"" +
+                "                }," +
+                "                {" +
+                "                  \"id\": 2," +
+                "                  \"rule\": \"Every team \"" +
+                "               }]," +
+                "              \"prelims_theme\": {" +
+                "                \"header\": \"Seven \"," +
+                "                \"theme\": \"The \"" +
+                "              }," +
+                "              \"final_theme\": {" +
+                "                \"header\": \"\"," +
+                "                \"theme\": \"This \"" +
+                "              }," +
+                "              \"judge_criteria\": [" +
+                "                {\"id\": 1,\"criteria\": \"Creativity \"}," +
+                "                {\"id\": 2,\"criteria\": \"Standard of Design - 10%\"}]" +
+                "            }" +
+                "           ]" +
+                "          }" +
+                "         ]" +
+                "       }";
+
         try {
-            JSONObject jsonObject = CommonFunctions.loadAssetsJsonObj("item.json", context);
+//            String json = new String(buffer, "UTF-8");
+
+            JSONObject jsonObject = new JSONObject(event);
+//            JSONObject jsonObject = new JSONObject()
+            Log.d("JSON2===",""+jsonObject);
             JSONArray proJsonArray = jsonObject.getJSONArray("programme");
+
             for (int i = 0; i < proJsonArray.length(); i++) {
                 JSONObject proJsonObject = proJsonArray.getJSONObject(i);
                 int proId = proJsonObject.getInt("id");
@@ -40,6 +85,7 @@ public class EventsDataModel {
                     String itemCompetition = itemObject.getString("competition");
                     String itemBounty = itemObject.getString("bounty");
                     String itemDescription = itemObject.getString("description");
+
                     JSONArray ruleArray = itemObject.getJSONArray("rules");
                     ArrayList<RuleModel> ruleModelArrayList = new ArrayList<>();
                     for (int k = 0; k < ruleArray.length(); k++) {
@@ -48,6 +94,7 @@ public class EventsDataModel {
                         String rule = ruleObject.getString("rule");
                         ruleModelArrayList.add(new RuleModel(ruleId, rule));
                     }
+
                     String pre_header = itemObject.getJSONObject("prelims_theme").getString("header");
                     String pre_theme = itemObject.getJSONObject("prelims_theme").getString("theme");
                     String final_header = itemObject.getJSONObject("final_theme").getString("header");

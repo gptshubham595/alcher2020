@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat;
 import com.app.alcheringa2020.authentication.FBLogin;
 import com.app.alcheringa2020.authentication.LoginActivity;
 import com.app.alcheringa2020.base.BaseActivity;
+import com.google.firebase.FirebaseApp;
 
 public class SplashActivity extends BaseActivity {
 
@@ -22,6 +23,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

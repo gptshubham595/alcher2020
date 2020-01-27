@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
 
 import org.json.JSONException;
@@ -92,7 +93,7 @@ public class Verify extends AppCompatActivity {
                                                 jsonObject.getString("verified")
                                         );
 
-                                Intent i = new Intent(Verify.this, LoginActivity.class);
+                                Intent i = new Intent(Verify.this, MainActivity.class);
                                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(i);
                                 CustomIntent.customType(Verify.this, "fadein-to-fadeout");

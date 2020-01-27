@@ -1,6 +1,7 @@
 package com.app.alcheringa2020.events;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -206,6 +207,7 @@ public class EventActivity extends BaseActivity implements EventListner {
                     }
                     ruleAdapter = new RuleAdapter(context, ruleModelArrayList, judgeModelArrayList, AppConstants.JUDGE);
                     judgeRecycler.setAdapter(ruleAdapter);
+
 
 
                     break;

@@ -48,7 +48,6 @@ public class EventHorizontalAdapter extends RecyclerView.Adapter<EventHorizontal
             item_image = (ImageView) v.findViewById(R.id.imageView);
         }
     }
-
     @Override
     public EventHorizontalAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_event_horizontal, parent, false);
@@ -63,6 +62,7 @@ public class EventHorizontalAdapter extends RecyclerView.Adapter<EventHorizontal
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, EventActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra(PRO_ID, typeInt);
                 intent.putExtra(PRO_CATEGORY, programmeCategory);
                 intent.putExtra(PRO_EVENT, itemModelArrayList.get(position).getItem());

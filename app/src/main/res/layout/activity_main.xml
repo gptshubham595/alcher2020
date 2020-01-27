@@ -39,7 +39,7 @@
                     app:civ_border_color="#ffff"
                     app:civ_border_width="0dp" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

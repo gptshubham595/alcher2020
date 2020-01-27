@@ -12,5 +12,6 @@ public class Constants {
     public static final String URL_Verify    = ROOT_URL + "verify.php";
     public static final String URL_Change    = ROOT_URL + "changepass.php";
     public static final String URL_Events   = ROOT_URL + "events.php";
+    public static final String URL_Feed   = ROOT_URL + "feedback.php";
 
 }

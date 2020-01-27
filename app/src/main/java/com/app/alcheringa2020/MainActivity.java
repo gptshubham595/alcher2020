@@ -1,20 +1,29 @@
 package com.app.alcheringa2020;
 
+
+import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -22,21 +31,30 @@ import androidx.fragment.app.FragmentTransaction;
 import com.app.alcheringa2020.authentication.ProfileActivity;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.app.alcheringa2020.events.EventsFragment;
-import com.app.alcheringa2020.external.PrefManager;
 import com.app.alcheringa2020.feed.FeedFragment;
 import com.app.alcheringa2020.map.MapList;
 import com.app.alcheringa2020.notification.NotificationFragment;
-import com.app.alcheringa2020.profile.ProfileFragment;
 import com.app.alcheringa2020.schedule.MyScheduleFragment;
 import com.app.alcheringa2020.schedule.ScheduleFragment;
 import com.app.alcheringa2020.search.SearchActivity;
 import com.app.alcheringa2020.support.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -44,16 +62,18 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     Fragment fragment;
     String currentFragment;
     BottomNavigationView navigationView;
-    public static ImageView main_logo, noti_image, profile_image, back_image, search_image, add_image, fav_image;
+    public static ImageView main_logo, noti_image, back_image, search_image, add_image, fav_image;
     public static TextView nav_title;
     public static RelativeLayout noti_rlt;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("mohan");
+
+    public static CircleImageView profile_image;
+
+    FirebaseFirestore db;
+    DatabaseReference reference;
     FloatingActionButton floatingActionButton;
     public static final String CHANNEL_ID = "mohan";
     private static final String CHANNEL_NAME = "mohan";
     private static final String CHANNEL_DESC = "mohan notification";
-
 
 
     @Override
@@ -61,12 +81,17 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
             channel.setDescription(CHANNEL_DESC);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
+
+        db = FirebaseFirestore.getInstance();
+        reference = FirebaseDatabase.getInstance().getReference("mohan");
+
         FirebaseMessaging.getInstance().subscribeToTopic("music");
         FirebaseMessaging.getInstance().subscribeToTopic("game");
         FirebaseMessaging.getInstance().subscribeToTopic("dance");
@@ -95,8 +120,67 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         currentFragment = "FeedFragment";
         setFragment(fragment);
         initListner();
-    }
 
+        String img = "";
+        try {
+            img = getIntent().getStringExtra("img_url");
+
+            final String finalImg = img;
+
+            if (isStoragePermissionGranted()) {
+                //                    Uri imgUri = Uri.parse("/storage/emulated/0/alcher2020/profile.jpg");
+                File imgFile = new File(Environment.getExternalStorageDirectory() + "/alcher.png");
+//                    Toast.makeText(this, ""+imgFile, Toast.LENGTH_SHORT).show();
+                if (imgFile.exists()) {
+
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                    profile_image.setImageBitmap(myBitmap);
+
+                } else {
+                    if(!img.equals(""))
+                    {Picasso.get().load(img).placeholder(R.drawable.profile).networkPolicy(NetworkPolicy.OFFLINE).into(profile_image, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+                            Picasso.get().load(finalImg).placeholder(R.drawable.profile).into(profile_image);
+                            Bitmap bitmap = ((BitmapDrawable)profile_image.getDrawable()).getBitmap();
+                            saveBitmap(bitmap);
+                        }
+                    });
+
+                    }
+                    else{
+
+                    }
+                }
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+    public void saveBitmap(Bitmap bitmap) {
+        File imagepath = new File(Environment.getExternalStorageDirectory() + "/alcher.png");
+        FileOutputStream fos;
+        String path;
+        //File file=new File(path);
+        try {
+            fos = new FileOutputStream(imagepath);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+            fos.close();
+            Toast.makeText(this, "SAVED at " + imagepath, Toast.LENGTH_SHORT).show();
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+    }
     private void initListner() {
         try {
             noti_image.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +208,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 //                    setFragment(fragment);
 //                    nav_title.setText(R.string.profile);
 //                    showHide();
-                    finish();
+//                    finish();
                     Intent intent = new Intent(context, ProfileActivity.class);
                     startActivity(intent);
                 }
@@ -201,6 +285,33 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         setFragment(fragment);
     }
 
+    public boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v("TAG", "Permission is granted");
+                return true;
+            } else {
+
+                Log.v("TAG", "Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v("TAG", "Permission is granted");
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Log.v("TAG", "Permission: " + permissions[0] + "was " + grantResults[0]);
+            //resume tasks needing this permission
+        }
+    }
+
     private void showHide() {
         profile_image.setVisibility(View.GONE);
         main_logo.setVisibility(View.GONE);
@@ -209,25 +320,33 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         nav_title.setVisibility(View.VISIBLE);
         if (currentFragment.equalsIgnoreCase("EventsFragment") || currentFragment.equalsIgnoreCase("NotificationFragment")) {
             search_image.setVisibility(View.VISIBLE);
+            noti_image.setVisibility(View.GONE);
         } else {
             search_image.setVisibility(View.GONE);
+            noti_image.setVisibility(View.VISIBLE);
         }
 
         if (currentFragment.equalsIgnoreCase("TeamFragment")) {
             add_image.setVisibility(View.VISIBLE);
+            noti_image.setVisibility(View.GONE);
         } else {
             add_image.setVisibility(View.GONE);
+            noti_image.setVisibility(View.VISIBLE);
         }
         if (currentFragment.equalsIgnoreCase("ProfileFragment") || currentFragment.equalsIgnoreCase("MyScheduleFragment") || currentFragment.equalsIgnoreCase("SupportFragment")) {
             noti_rlt.setVisibility(View.INVISIBLE);
+            noti_image.setVisibility(View.VISIBLE);
         } else {
             noti_rlt.setVisibility(View.VISIBLE);
+            noti_image.setVisibility(View.GONE);
         }
 
         if (currentFragment.equalsIgnoreCase("ScheduleFragment")) {
             fav_image.setVisibility(View.VISIBLE);
+            noti_image.setVisibility(View.GONE);
         } else {
             fav_image.setVisibility(View.GONE);
+            noti_image.setVisibility(View.VISIBLE);
         }
     }
 

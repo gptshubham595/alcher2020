@@ -19,7 +19,7 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
+        android:layout_below="@id/logo"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="5dp"
@@ -124,13 +124,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonLogin"
         android:layout_centerHorizontal="true"
-        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
         android:text="Continue with FB"
         android:textColor="@color/white"
         android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/lin"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/social"
@@ -153,7 +154,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/lin"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="horizontal">
 
