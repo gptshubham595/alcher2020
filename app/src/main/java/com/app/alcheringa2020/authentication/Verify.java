@@ -38,7 +38,6 @@ public class Verify extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify);
-
         editTextOtp = findViewById(R.id.editTextOtp);
         sendagain = findViewById(R.id.sendOtpAgain);
         buttonlogin = findViewById(R.id.buttonLogin);

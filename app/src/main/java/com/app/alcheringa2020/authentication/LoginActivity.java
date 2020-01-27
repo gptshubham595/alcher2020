@@ -186,8 +186,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
+                            Log.d("JSON",jsonObject+"");
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -235,6 +235,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
+                            Log.d("JSON",jsonObject+"");
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
 
                             Log.d("JSON RES===",""+jsonObject);

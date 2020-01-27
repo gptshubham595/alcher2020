@@ -91,7 +91,7 @@ public class ChangePass extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
-                            Toast.makeText(getApplicationContext(), "" + jsonObject, Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "" + jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                             if (!jsonObject.getBoolean("error")) {
                                 Intent i = new Intent(ChangePass.this, LoginActivity.class);
                                 startActivity(i);
