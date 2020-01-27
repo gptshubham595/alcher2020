@@ -52,7 +52,7 @@
 
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" /> <!-- For Google Plus Sign in -->
+            android:required="false" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -69,7 +69,6 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>

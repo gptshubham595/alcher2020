@@ -44,6 +44,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
@@ -88,7 +89,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
-
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
         db = FirebaseFirestore.getInstance();
         reference = FirebaseDatabase.getInstance().getReference("mohan");
 
@@ -196,8 +200,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             search_image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, SearchActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(context, SearchActivity.class);
+//                    startActivity(intent);
                 }
             });
             profile_image.setOnClickListener(new View.OnClickListener() {
@@ -319,7 +323,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         back_image.setVisibility(View.VISIBLE);
         nav_title.setVisibility(View.VISIBLE);
         if (currentFragment.equalsIgnoreCase("EventsFragment") || currentFragment.equalsIgnoreCase("NotificationFragment")) {
-            search_image.setVisibility(View.VISIBLE);
+            search_image.setVisibility(View.GONE);
             noti_image.setVisibility(View.GONE);
         } else {
             search_image.setVisibility(View.GONE);
