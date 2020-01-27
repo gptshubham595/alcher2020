@@ -42,12 +42,12 @@
     {
       "id": 2,
       "category": "Vogue Nation2",
-      "image": "",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
       "item": [
         {
           "id": 1,
           "item": "Haute Couture",
-          "image": "",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
           "competition": "Fashion Designing Competition",
           "bounty": "400",
           "description": "Ever felt ",

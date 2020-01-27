@@ -89,11 +89,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
+        db = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
                 .build();
         db.setFirestoreSettings(settings);
-        db = FirebaseFirestore.getInstance();
+
         reference = FirebaseDatabase.getInstance().getReference("mohan");
 
         FirebaseMessaging.getInstance().subscribeToTopic("music");
