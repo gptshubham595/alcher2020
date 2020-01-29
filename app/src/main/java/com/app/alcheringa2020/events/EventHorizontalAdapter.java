@@ -8,12 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.events.model.ItemModel;
 import com.app.alcheringa2020.external.PrefManager;
+import com.makeramen.roundedimageview.RoundedImageView;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -41,11 +46,11 @@ public class EventHorizontalAdapter extends RecyclerView.Adapter<EventHorizontal
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView child_textView;
-        ImageView item_image;
+        RoundedImageView item_image;
         public ViewHolder(View v) {
             super(v);
             child_textView = (TextView) v.findViewById(R.id.textViewTitle);
-            item_image = (ImageView) v.findViewById(R.id.imageView);
+            item_image = (RoundedImageView) v.findViewById(R.id.imageView);
         }
     }
     @Override
@@ -56,6 +61,20 @@ public class EventHorizontalAdapter extends RecyclerView.Adapter<EventHorizontal
 
     @Override
     public void onBindViewHolder(final EventHorizontalAdapter.ViewHolder holder,final int position) {
+        try {
+            Picasso.get().load(itemModelArrayList.get(position).getItemImage()).networkPolicy(NetworkPolicy.OFFLINE).into(holder.item_image, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    Picasso.get().load(itemModelArrayList.get(position).getItemImage()).into(holder.item_image);
+                }
+            });
+        }catch (Exception e){e.printStackTrace();}
+//        Toast.makeText(mContext, itemModelArrayList.get(position).getItemImage(), Toast.LENGTH_SHORT).show();
 
         holder.child_textView.setText(itemModelArrayList.get(position).getItem());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

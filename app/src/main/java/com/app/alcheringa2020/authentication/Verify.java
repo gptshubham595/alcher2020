@@ -91,23 +91,23 @@ public class Verify extends AppCompatActivity {
                                         .userVerified(
                                                 jsonObject.getString("verified")
                                         );
-                                Intent i = new Intent(Verify.this, LoginActivity.class);
-                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(i);
-                                CustomIntent.customType(Verify.this, "fadein-to-fadeout");
+
+                                if(jsonObject.getString("message").equals("Verified")){
+                                    Intent i = new Intent(Verify.this, LoginActivity.class);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(i);
+                                    CustomIntent.customType(Verify.this, "fadein-to-fadeout");
+                                }
                             } else {
                                 Toast.makeText(Verify.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }
-
-                            Intent i = new Intent(Verify.this, LoginActivity.class);
-                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(i);
-                            CustomIntent.customType(Verify.this, "fadein-to-fadeout");
 
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+
                     }
                 },
                 new Response.ErrorListener() {

@@ -101,12 +101,12 @@ public class MyScheduleDataModel {
         ArrayList<MyScheduleModel> myScheduleModelArrayList = new ArrayList<>();
         try {
             jsonObject = CommonFunctions.loadAssetsJsonObj("myschedule.json", context);
-            try{
-                jsonObject=new JSONObject(getschedule());
-            }
-            catch(Exception e){e.printStackTrace();
-                jsonObject = new JSONObject(schedule);
-            }
+//            try{
+//                jsonObject=new JSONObject(getschedule());
+//            }
+//            catch(Exception e){e.printStackTrace();
+//                jsonObject = new JSONObject(schedule);
+//            }
             JSONArray scheduleJsonArray = jsonObject.getJSONArray("schedule");
             for (int i = 0; i < scheduleJsonArray.length(); i++) {
                 JSONObject sceduleJsonObject = scheduleJsonArray.getJSONObject(i);

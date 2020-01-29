@@ -1,15 +1,24 @@
 package com.app.alcheringa2020.feed;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.base.BaseFragment;
 import com.app.alcheringa2020.notification.model.NotiDetailModel;
@@ -18,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,7 +46,8 @@ public class FeedFragment extends BaseFragment {
     private feedAdapter adapter;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private ArrayList<feedClass> itemList;
-
+    RoundedImageView h1,h2,h3,h4,h5;
+    ProgressDialog dialog;
 
     public FeedFragment() {
         //blank Constructor
@@ -57,25 +68,111 @@ public class FeedFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         fragment_container = container;
         context = getActivity().getApplicationContext();
+        dialog=new ProgressDialog(getContext());
+
         view = inflater.inflate(R.layout.fragment_feed, container, false);
+
+        h1= view.findViewById(R.id.h1);
+        h2= view.findViewById(R.id.h2);
+        h3=view.findViewById(R.id.h3);
+        h4= view.findViewById(R.id.h4);
+        h5= view.findViewById(R.id.h5);
+
+        h1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.highligh);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+                RoundedImageView img=dialog.findViewById(R.id.titleimage);
+                img.setImageResource(R.drawable.h1);
+
+                dialog.show();
+
+            }
+        });
+
+
+        h2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.highligh);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+                RoundedImageView img=dialog.findViewById(R.id.titleimage);
+                img.setImageResource(R.drawable.h2);
+
+                dialog.show();
+
+            }
+        });
+
+        h3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.highligh);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+                RoundedImageView img=dialog.findViewById(R.id.titleimage);
+                img.setImageResource(R.drawable.h3);
+
+                dialog.show();
+
+            }
+        });
+
+        h4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.highligh);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                RoundedImageView img=dialog.findViewById(R.id.titleimage);
+                img.setImageResource(R.drawable.h4);
+                dialog.show();
+            }
+        });
+
+        h5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.highligh);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+                RoundedImageView img=dialog.findViewById(R.id.titleimage);
+                img.setImageResource(R.drawable.h5);
+
+                dialog.show();
+
+            }
+        });
+
+
         databaseReference = databaseReference.child("feed");
         databaseReference.keepSynced(true);
         recyclerView = view.findViewById(R.id.feedRecycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         itemList = new ArrayList<>();
-//        itemList.add(new feedClass("Test feed","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/s960x960/83723262_486448612246622_7145432168599126016_o.jpg?_nc_cat=111&_nc_ohc=kvBafHEbtn4AX_jDKBP&_nc_ht=scontent.fdel29-1.fna&oh=d521de8caffaf27f3fab33a82524db1d&oe=5E9401A9","1"));
-//        itemList.add(new feedClass("Another feed Class","It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)","","2"));
-//        itemList.add(new feedClass("Test feed","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/s960x960/83723262_486448612246622_7145432168599126016_o.jpg?_nc_cat=111&_nc_ohc=kvBafHEbtn4AX_jDKBP&_nc_ht=scontent.fdel29-1.fna&oh=d521de8caffaf27f3fab33a82524db1d&oe=5E9401A9","3"));
-//        itemList.add(new feedClass("Another feed Class","It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)","","4"));
-//        itemList.add(new feedClass("Test feed","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/s960x960/83723262_486448612246622_7145432168599126016_o.jpg?_nc_cat=111&_nc_ohc=kvBafHEbtn4AX_jDKBP&_nc_ht=scontent.fdel29-1.fna&oh=d521de8caffaf27f3fab33a82524db1d&oe=5E9401A9","5"));
-//        itemList.add(new feedClass("Another feed Class","It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)","","6"));
-//        itemList.add(new feedClass("Test feed","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","https://scontent.fdel29-1.fna.fbcdn.net/v/t1.0-9/s960x960/83723262_486448612246622_7145432168599126016_o.jpg?_nc_cat=111&_nc_ohc=kvBafHEbtn4AX_jDKBP&_nc_ht=scontent.fdel29-1.fna&oh=d521de8caffaf27f3fab33a82524db1d&oe=5E9401A9","7"));
-//        itemList.add(new feedClass("Another feed Class","It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)","","8"));
-//        Collections.sort(itemList,new SortbyId());
+
         adapter = new feedAdapter(itemList,getContext());
         recyclerView.setAdapter(adapter);
-
+        dialog.setMessage("Loading");
+        dialog.show();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -84,6 +181,7 @@ public class FeedFragment extends BaseFragment {
                 }
                 Collections.sort(itemList,new SortbyId());
                 adapter.notifyDataSetChanged();
+            dialog.dismiss();
             }
 
             @Override

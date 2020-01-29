@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="330dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:id="@+id/congratulation_card"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/titleimage"
+                    android:src="@drawable/h1"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center"
+                    app:riv_corner_radius="30dip"
+                    app:riv_border_width="2dip"
+                    app:riv_border_color="#333333"
+                    app:riv_mutate_background="true"
+                    app:riv_corner_radius_bottom_left="12dp"
+                    app:riv_corner_radius_bottom_right="12dp"
+                    app:riv_corner_radius_top_left="12dp"
+                    app:riv_corner_radius_top_right="12dp"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+    </FrameLayout>
+</LinearLayout>

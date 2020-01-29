@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class ContactUs extends AppCompatActivity {
     LinearLayout hemant, shashank, kartikey;
@@ -46,4 +50,20 @@ public class ContactUs extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        exitApp();
+    }
+
+    private void exitApp() {
+        Intent i=new Intent(this,MainActivity.class);
+        i.putExtra("SUPPORT","Y");
+        startActivity(i);
+    }
+
+    public void backOption(View view) {
+        exitApp();
+    }
+
 }

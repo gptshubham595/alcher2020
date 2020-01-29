@@ -8,19 +8,27 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="#E849435F"
         android:layout_margin="5dp"
         android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/event2"
-            />
+            app:riv_corner_radius="30dip"
+            app:riv_border_width="2dip"
+            app:riv_border_color="#333333"
+            app:riv_mutate_background="true"
+            app:riv_corner_radius_bottom_left="12dp"
+            app:riv_corner_radius_bottom_right="12dp"
+            app:riv_corner_radius_top_left="12dp"
+            app:riv_corner_radius_top_right="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <TextView
             android:textColor="@color/white"
             android:id="@+id/textViewTitle"
@@ -29,9 +37,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="30dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textSize="16sp"
+            android:paddingBottom="15dp"
             android:text="@string/app_name"
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>

@@ -31,19 +31,10 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class EventsDataModel {
     public static ArrayList<ProgrammeModel> programmeModelArrayList(Context context) {
         ArrayList<ProgrammeModel> programmeModelArrayList = new ArrayList<>();
-        String event="";
 
         try {
-            JSONObject jsonObject;
-            try{
-                jsonObject=new JSONObject(getevent());
-                Toast.makeText(getApplicationContext(), "REFRESHED", Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "REFRESHED", Toast.LENGTH_LONG).show();
-//                Toast.makeText(context, ""+jsonObject, Toast.LENGTH_SHORT).show();
-            }
-            catch(Exception e){e.printStackTrace();
-                jsonObject = CommonFunctions.loadAssetsJsonObj("item.json",context);
-            }
+            JSONObject jsonObject= CommonFunctions.loadAssetsJsonObj("item.json",context);
+
             Log.d("JSON2===",""+jsonObject);
             JSONArray proJsonArray = jsonObject.getJSONArray("programme");
 

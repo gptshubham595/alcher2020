@@ -12,13 +12,172 @@
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     app:cardBackgroundColor="#2B263C"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="16dp"
+    android:layout_marginTop="8dp"
     android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Highlights"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="45dp"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/scrollbar"
+            android:layout_marginTop="55dp"
+            android:background="@color/colorAccent"
+            android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:id="@+id/scroll"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+
+                    android:layout_height="200dp">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/h1"
+                        android:src="@drawable/h1"
+                        android:scaleType="fitXY"
+                        app:riv_corner_radius="30dip"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        app:riv_mutate_background="true"
+                        app:riv_corner_radius_bottom_left="12dp"
+                        app:riv_corner_radius_bottom_right="12dp"
+                        app:riv_corner_radius_top_left="12dp"
+                        app:riv_corner_radius_top_right="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="200dp">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/h2"
+                        android:src="@drawable/h2"
+                        android:scaleType="fitXY"
+                        app:riv_corner_radius="30dip"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        app:riv_mutate_background="true"
+                        app:riv_corner_radius_bottom_left="12dp"
+                        app:riv_corner_radius_bottom_right="12dp"
+                        app:riv_corner_radius_top_left="12dp"
+                        app:riv_corner_radius_top_right="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="200dp">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/h3"
+                        android:src="@drawable/h3"
+                        android:scaleType="fitXY"
+                        app:riv_corner_radius="30dip"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        app:riv_mutate_background="true"
+                        app:riv_corner_radius_bottom_left="12dp"
+                        app:riv_corner_radius_bottom_right="12dp"
+                        app:riv_corner_radius_top_left="12dp"
+                        app:riv_corner_radius_top_right="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="200dp">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/h4"
+                        android:src="@drawable/h4"
+                        android:scaleType="fitXY"
+                        app:riv_corner_radius="30dip"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        app:riv_mutate_background="true"
+                        app:riv_corner_radius_bottom_left="12dp"
+                        app:riv_corner_radius_bottom_right="12dp"
+                        app:riv_corner_radius_top_left="12dp"
+                        app:riv_corner_radius_top_right="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="200dp">
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/h5"
+                        android:src="@drawable/h5"
+                        android:scaleType="fitXY"
+                        app:riv_corner_radius="30dip"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        app:riv_mutate_background="true"
+                        app:riv_corner_radius_bottom_left="12dp"
+                        app:riv_corner_radius_bottom_right="12dp"
+                        app:riv_corner_radius_top_left="12dp"
+                        app:riv_corner_radius_top_right="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="20sp"
             android:background="#1E1A33"
+            android:layout_below="@id/scrollbar"
+            android:layout_margin="15dp"
             android:paddingBottom="10sp"
             android:orientation="vertical"
             android:layout_gravity="center"
@@ -33,6 +192,8 @@
                 android:layout_margin="10dp"/>
         </LinearLayout>
 
+
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
     </LinearLayout>
 

@@ -90,7 +90,7 @@
                             style="@style/textBold"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Rules" />
+                            android:text="  Rules" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/ruleRecycler"

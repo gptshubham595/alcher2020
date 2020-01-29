@@ -40,10 +40,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/feed"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/feedback"
+                        android:layout_height="wrap_content"/>
                     <TextView
                         android:textColor="@color/white"
                         style="@style/textBold"
+                        android:layout_below="@id/feed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -75,12 +82,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/contact"
+                        android:id="@id/contact"
+                        android:layout_height="wrap_content"/>
                     <TextView
                         android:textColor="@color/white"
                         style="@style/textBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/contact"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="20dp"
                         android:gravity="center"
@@ -111,10 +124,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/team"
+                        android:id="@+id/dev"
+                        android:layout_height="wrap_content"/>
                     <TextView
                         android:textColor="@color/white"
                         style="@style/textBold"
+                        android:layout_below="@id/dev"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"

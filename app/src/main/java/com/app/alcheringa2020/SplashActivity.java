@@ -17,6 +17,8 @@ import com.app.alcheringa2020.authentication.LoginActivity;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.google.firebase.FirebaseApp;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class SplashActivity extends BaseActivity {
 
     @Override
@@ -27,9 +29,8 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isPermissionGranted()) {
                     mainMethod();
-                }
+
             }
         }, 3000);
     }
@@ -37,7 +38,7 @@ public class SplashActivity extends BaseActivity {
     private void mainMethod() {
 //        startActivity(new Intent(this, LoginActivity.class));
                 startActivity(new Intent(this, LoginActivity.class));
-        finish();
+                CustomIntent.customType(SplashActivity.this,"fadein-to-fadeout");
     }
 
     private boolean isPermissionGranted() {

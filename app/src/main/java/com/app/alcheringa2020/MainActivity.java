@@ -5,7 +5,8 @@ import android.Manifest;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -19,62 +20,43 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.app.alcheringa2020.authentication.Constants;
 import com.app.alcheringa2020.authentication.ProfileActivity;
-import com.app.alcheringa2020.authentication.RequestHandler;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.app.alcheringa2020.events.EventsFragment;
 import com.app.alcheringa2020.feed.FeedFragment;
 import com.app.alcheringa2020.map.MapList;
 import com.app.alcheringa2020.notification.NotificationFragment;
 import com.app.alcheringa2020.schedule.MyScheduleFragment;
-import com.app.alcheringa2020.schedule.ScheduleFragment;
-import com.app.alcheringa2020.search.SearchActivity;
 import com.app.alcheringa2020.support.SupportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.gson.JsonObject;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -85,7 +67,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public static ImageView main_logo, noti_image, back_image, search_image, add_image, fav_image;
     public static TextView nav_title;
     public static RelativeLayout noti_rlt;
-
+    ProgressDialog dialog;
     public static CircleImageView profile_image;
 
     FirebaseFirestore db;
@@ -114,6 +96,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 .build();
         db.setFirestoreSettings(settings);
 
+        Context context;
+        dialog=new ProgressDialog(this);
+
         reference = FirebaseDatabase.getInstance().getReference("mohan");
 
         FirebaseMessaging.getInstance().subscribeToTopic("music");
@@ -141,9 +126,23 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         navigationView = findViewById(R.id.bottomNavigationView);
         add_image = findViewById(R.id.add_image);
         navigationView.setOnNavigationItemSelectedListener(this);
-        fragment = FeedFragment.newInstance(context);
+        fragment = FeedFragment.newInstance(this);
         currentFragment = "FeedFragment";
         setFragment(fragment);
+
+        try{
+            String SUPPORT=getIntent().getStringExtra("SUPPORT");
+            if(SUPPORT.equals("Y")){goatsupport();}
+
+//            String SUPPORT=getIntent().getStringExtra("SUPPORT");
+//            if(SUPPORT.equals("Y")){goatsupport();}
+//
+//            String SUPPORT=getIntent().getStringExtra("SUPPORT");
+//            if(SUPPORT.equals("Y")){goatsupport();}
+
+
+        }catch (Exception e){e.printStackTrace();}
+
         initListner();
 
         String img = "";
@@ -162,23 +161,22 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                     profile_image.setImageBitmap(myBitmap);
 
                 } else {
-                    if(!img.equals(""))
-                    {Picasso.get().load(img).placeholder(R.drawable.profile).networkPolicy(NetworkPolicy.OFFLINE).into(profile_image, new Callback() {
-                        @Override
-                        public void onSuccess() {
-                        }
+                    if (!img.equals("")) {
+                        Picasso.get().load(img).placeholder(R.drawable.profile).networkPolicy(NetworkPolicy.OFFLINE).into(profile_image, new Callback() {
+                            @Override
+                            public void onSuccess() {
+                            }
 
-                        @Override
-                        public void onError(Exception e) {
-                            Picasso.get().load(finalImg).placeholder(R.drawable.profile).into(profile_image);
-                        }
-                    });
+                            @Override
+                            public void onError(Exception e) {
+                                Picasso.get().load(finalImg).placeholder(R.drawable.profile).into(profile_image);
+                            }
+                        });
                         BitmapDrawable drawable = (BitmapDrawable) profile_image.getDrawable();
                         Bitmap bitmap = drawable.getBitmap();
 
                         saveBitmap(bitmap);
-                    }
-                    else{
+                    } else {
 
                     }
                 }
@@ -192,6 +190,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
 
     }
+
     public void saveBitmap(Bitmap bitmap) {
         File imagepath = new File(Environment.getExternalStorageDirectory() + "/alcher.png");
         FileOutputStream fos;
@@ -207,6 +206,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         } catch (IOException e) {
         }
     }
+
     private void initListner() {
         try {
             noti_image.setOnClickListener(new View.OnClickListener() {
@@ -255,6 +255,24 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             e.printStackTrace();
         }
     }
+    public  void gotatfeed(){feedFragment();}
+    public  void goatevent(){
+        fragment = EventsFragment.newInstance(context);
+        currentFragment = "EventsFragment";
+        setFragment(fragment);
+        nav_title.setText(R.string.events);
+        showHide();
+    }
+    public  void goatschedule(){ fragment = MyScheduleFragment.newInstance(context);
+        currentFragment = "MyScheduleFragment";
+        setFragment(fragment);
+        nav_title.setText(R.string.schedule);
+        showHide();}
+    public  void goatsupport(){fragment = SupportFragment.newInstance(context);
+        currentFragment = "SupportFragment";
+        setFragment(fragment);
+        nav_title.setText(R.string.support);
+        showHide();}
 
     public void setFragment(Fragment fragment) {
         if (fragment != null) {
@@ -271,7 +289,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         switch (menuItem.getItemId()) {
             case R.id.nav_feed:
                 feedFragment();
-
                 break;
             case R.id.nav_events:
                 fragment = EventsFragment.newInstance(context);
@@ -393,7 +410,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
                 TextView cancel = dialog.findViewById(R.id.exit);
-                TextView ok=dialog.findViewById(R.id.ok);
+                TextView ok = dialog.findViewById(R.id.ok);
 
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -401,7 +418,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                         dialog.cancel();
                     }
                 });
-                              ok.setOnClickListener(new View.OnClickListener() {
+                ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         finish();

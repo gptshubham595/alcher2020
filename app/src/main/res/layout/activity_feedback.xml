@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorAccent" />
 
 
     <ImageView
@@ -89,6 +89,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_below="@id/tag"
+        android:gravity="center"
+        android:layout_gravity="center"
         app:hintTextColor="@color/white"
         android:layout_height="wrap_content">
         <EditText
@@ -96,9 +98,6 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:inputType="textMultiLine"
-            android:hint="Text"
-            android:layout_gravity="center"
-            android:gravity="center"
             android:paddingLeft="20dp"
             android:textColorHint="?colorPrimary"
             android:background="@drawable/shape"

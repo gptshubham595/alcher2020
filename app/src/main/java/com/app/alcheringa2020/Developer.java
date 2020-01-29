@@ -9,16 +9,17 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 public class Developer extends AppCompatActivity {
-    LinearLayout hemant, shashank, kartikey;
+    LinearLayout shubham, mohan, siddharth,priyanshu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developer);
-        hemant = findViewById(R.id.shubham);
-        shashank = findViewById(R.id.mohan);
-        kartikey=findViewById(R.id.priyanshu);
+        shubham = findViewById(R.id.shubham);
+        mohan = findViewById(R.id.mohan);
+        siddharth=findViewById(R.id.siddharth);
+        priyanshu=findViewById(R.id.priyanshu);
 
-        hemant.setOnClickListener(new View.OnClickListener() {
+        shubham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("https://www.facebook.com/gptshubham595"); // missing 'http://' will cause crashed
@@ -26,7 +27,7 @@ public class Developer extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        shashank.setOnClickListener(new View.OnClickListener() {
+        mohan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("https://www.facebook.com/mohan.kr.3720"); // missing 'http://' will cause crashed
@@ -34,10 +35,18 @@ public class Developer extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        kartikey.setOnClickListener(new View.OnClickListener() {
+        priyanshu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("https://www.facebook.com/priyanshu.jain.393"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+        siddharth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.facebook.com/Siddharthjain2424"); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

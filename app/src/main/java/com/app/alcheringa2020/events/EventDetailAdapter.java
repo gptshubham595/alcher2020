@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.events.model.ItemModel;
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -37,7 +38,7 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView child_textView;
-        ImageView item_image;
+        RoundedImageView item_image;
         EventListner eventListner;
         int eventId;
 
@@ -45,7 +46,7 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
             super(v);
             this.eventListner = eventListner;
             child_textView = (TextView) v.findViewById(R.id.textViewTitle);
-            item_image = (ImageView) v.findViewById(R.id.imageView);
+            item_image = (RoundedImageView) v.findViewById(R.id.imageView);
         }
 
         @Override
@@ -63,9 +64,22 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
     }
 
     @Override
-    public void onBindViewHolder(EventDetailAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final EventDetailAdapter.ViewHolder holder, final int position) {
+//        Toast.makeText(mContext, "EVENT", Toast.LENGTH_SHORT).show();
 //        Toast.makeText(mContext, itemModelArrayList.get(position).getItemImage(), Toast.LENGTH_SHORT).show();
-        Picasso.get().load(itemModelArrayList.get(position).getItemImage()).placeholder(R.drawable.event2).into(holder.item_image);
+        try {
+            Picasso.get().load(itemModelArrayList.get(position).getItemImage()).networkPolicy(NetworkPolicy.OFFLINE).into(holder.item_image, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    Picasso.get().load(itemModelArrayList.get(position).getItemImage()).into(holder.item_image);
+                }
+            });
+        }catch (Exception e){e.printStackTrace();}
         holder.child_textView.setText(itemModelArrayList.get(position).getItem());
         holder.eventId = itemModelArrayList.get(position).getItemId();
         Typeface typeface = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "font/exo_regular.ttf");

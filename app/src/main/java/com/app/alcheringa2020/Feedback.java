@@ -82,8 +82,11 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
-    private void sendfeed(final String email, String sub, final String textstr, final String tag) {
-//        Toast.makeText(this, "Sending", Toast.LENGTH_SHORT).show();
+    private void sendfeed(final String email, final String sub, final String textstr, final String tag) {
+        final String substr = subject.getText().toString();
+        final String text1 = text.getText().toString();
+
+//        Toast.makeText(this, email+" "+substr+" "+text1 + " "+tag, Toast.LENGTH_SHORT).show();
         progressDialog.setMessage("Sending...");
         progressDialog.show();
 
@@ -122,10 +125,10 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("email", email);
-                params.put("text", textstr);
+                params.put("subject", substr);
+                params.put("text", text1);
                 params.put("tag", tag);
                 params.put("submit", "submit");
-
                 return params;
             }
         };
@@ -139,6 +142,10 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
         item = parent.getItemAtPosition(position).toString();
+
+        String substr = subject.getText().toString();
+        String textstr = text.getText().toString();
+
 
         // Showing selected spinner item
 //        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();

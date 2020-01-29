@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorAccent"
     android:layout_height="match_parent"
     tools:context=".Developer">
+
     <TextView
         android:layout_width="match_parent"
-        android:text="Developer's Team"
-        android:textColor="@color/white"
+        android:text="Developed By Team WebOps"
+        android:textColor="@color/event_color"
         android:gravity="center"
         android:layout_margin="20dp"
         android:id="@+id/contact"
@@ -23,67 +24,199 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center"
+            android:paddingTop="250dp"
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 app:cardCornerRadius="20dp"
                 android:layout_margin="20dp"
-                app:cardBackgroundColor="#B7FFFFFF"
-                android:layout_height="150dp">
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_gravity="center"
                     android:id="@+id/shubham"
-                    android:gravity="center"
-                    android:layout_height="wrap_content">
+                    android:layout_height="130dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        android:layout_height="match_parent">
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:src="@drawable/shubham"
+                            android:scaleType="fitXY"
+                            app:riv_corner_radius="30dip"
+                            app:riv_border_width="2dip"
+                            app:riv_border_color="#333333"
+                            app:riv_mutate_background="true"
+                            app:riv_corner_radius_bottom_left="12dp"
+                            app:riv_corner_radius_bottom_right="12dp"
+                            app:riv_corner_radius_top_left="12dp"
+                            app:riv_corner_radius_top_right="12dp"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="90dp"
-                        android:layout_margin="5dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/shubham"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:text="Shubham Kumar Gupta"
-                        android:textSize="18sp"
-                        android:textColor="@color/colorAccent"
-                        android:layout_height="wrap_content"/>
-
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="40dp"
+                            android:textStyle="bold"
+                            android:text="Shubham Kumar Gupta"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_height="70dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 app:cardCornerRadius="20dp"
                 android:layout_margin="20dp"
-                app:cardBackgroundColor="#B0FFFFFF"
+                app:cardBackgroundColor="@color/colorPrimary"
                 android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:id="@+id/mohan"
-                    android:layout_height="150dp">
+                    android:layout_height="130dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        android:layout_height="match_parent">
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:src="@drawable/mohan"
+                            android:scaleType="fitXY"
+                            app:riv_corner_radius="30dip"
+                            app:riv_border_width="2dip"
+                            app:riv_border_color="#333333"
+                            app:riv_mutate_background="true"
+                            app:riv_corner_radius_bottom_left="12dp"
+                            app:riv_corner_radius_bottom_right="12dp"
+                            app:riv_corner_radius_top_left="12dp"
+                            app:riv_corner_radius_top_right="12dp"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="90dp"
-                        android:layout_margin="5dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/mohan"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:text="Mohan Kumar"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp"
-                        android:layout_height="wrap_content"/>
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="40dp"
+                            android:textStyle="bold"
+                            android:text="Mohan Kumar"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_height="70dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:id="@+id/siddharth"
+                    android:layout_height="130dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        android:layout_height="match_parent">
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:src="@drawable/siddharth"
+                            android:scaleType="fitXY"
+                            app:riv_corner_radius="30dip"
+                            app:riv_border_width="2dip"
+                            app:riv_border_color="#333333"
+                            app:riv_mutate_background="true"
+                            app:riv_corner_radius_bottom_left="12dp"
+                            app:riv_corner_radius_bottom_right="12dp"
+                            app:riv_corner_radius_top_left="12dp"
+                            app:riv_corner_radius_top_right="12dp"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent" />
+
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="40dp"
+                            android:textStyle="bold"
+                            android:text="Siddharth Jain"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_height="70dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:id="@+id/priyanshu"
+                    android:layout_height="130dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        android:layout_height="match_parent">
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:src="@drawable/priyanshu"
+                            android:scaleType="fitXY"
+                            app:riv_corner_radius="30dip"
+                            app:riv_border_width="2dip"
+                            app:riv_border_color="#333333"
+                            app:riv_mutate_background="true"
+                            app:riv_corner_radius_bottom_left="12dp"
+                            app:riv_corner_radius_bottom_right="12dp"
+                            app:riv_corner_radius_top_left="12dp"
+                            app:riv_corner_radius_top_right="12dp"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent" />
+
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="40dp"
+                            android:textStyle="bold"
+                            android:text="Priyanshu Jain"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -91,33 +224,50 @@
                 android:layout_width="match_parent"
                 app:cardCornerRadius="20dp"
                 android:layout_margin="20dp"
-                app:cardBackgroundColor="#B0FFFFFF"
+                app:cardBackgroundColor="@color/colorPrimary"
                 android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:id="@+id/priyanshu"
-                    android:layout_height="150dp">
+                    android:id="@+id/web"
+                    android:layout_height="130dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        android:layout_height="match_parent">
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:src="@drawable/web"
+                            android:scaleType="fitXY"
+                            app:riv_corner_radius="30dip"
+                            app:riv_border_width="2dip"
+                            app:riv_border_color="#333333"
+                            app:riv_mutate_background="true"
+                            app:riv_corner_radius_bottom_left="12dp"
+                            app:riv_corner_radius_bottom_right="12dp"
+                            app:riv_corner_radius_top_left="12dp"
+                            app:riv_corner_radius_top_right="12dp"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="90dp"
-                        android:layout_margin="5dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/priyanshu"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:text="Priyanshu Jain"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="18sp"
-                        android:layout_height="wrap_content"/>
+                    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="left"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="40dp"
+                            android:textStyle="bold"
+                            android:text="Web Com"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
         </LinearLayout>

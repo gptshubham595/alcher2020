@@ -191,10 +191,11 @@ public class EventActivity extends BaseActivity implements EventListner {
         try {
             for (int i = 0; i < itemModelArrayList.size(); i++) {
                 ItemModel itemModel = itemModelArrayList.get(i);
+                Log.d("ITEMMODELARRAY",""+itemModel.getItemCompetition());
                 if (event_id == itemModel.getItemId()) {
                     competitionTxt.setText(itemModel.getItemCompetition());
                     bountyTxt.setText("Bounties - " + itemModel.getItemBounty());
-                    descriptionTxt.setText(itemModel.getItemCompetition());
+                    descriptionTxt.setText(itemModel.getItemDescription());
                     prelimsDescription.setText(Html.fromHtml("<h2>" + itemModel.getPre_header() + "</h2>") + " " + itemModel.getPre_theme());
                     finalsDescription.setText(Html.fromHtml("<h2>" + itemModel.getFinal_header() + "</h2>") + " " + itemModel.getFinal_theme());
                     ArrayList<RuleModel> ruleModelArrayList = new ArrayList<>();

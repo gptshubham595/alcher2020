@@ -1,5 +1,6 @@
 package com.app.alcheringa2020.notification;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -88,7 +89,7 @@ public class NotificationFragment extends BaseFragment {
     ArrayList<NotiDetailModel> data = new ArrayList<>();
     NotificationDataAdapter notificationDataAdapter;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
+    ProgressDialog dialog;
     public NotificationFragment() {
         //blank Constructor
     }
@@ -102,6 +103,8 @@ public class NotificationFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dialog=new ProgressDialog(context);
+
     }
 
     @Override
@@ -120,7 +123,8 @@ public class NotificationFragment extends BaseFragment {
 
         Map<String,Object> mp=new HashMap<>();
         mp.put("name","mohan");
-
+        dialog.setMessage("Loading..");
+        dialog.show();
         firestore.collection("notificationLog").document("allNotifications").collection("notifications").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -137,6 +141,7 @@ public class NotificationFragment extends BaseFragment {
                 }else{
                     Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
                 }
+                dialog.dismiss();
             }
         });}catch (Exception e){e.printStackTrace();
             Toast.makeText(context, "Some Error Occured", Toast.LENGTH_SHORT).show();}

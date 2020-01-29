@@ -2,66 +2,664 @@
   "schedule": [
     {
       "id": 1,
-      "day": "Day 1",
-      "date": "07/01/20",
+      "day": "Day 0",
+      "date": "31/01/2020",
       "event": [
         {
           "id": 1,
-          "event_name": "Haute Couture",
-          "venue": "Hall 1",
-          "start_time": "13:00",
-          "end_time": "14:30"
+          "event_name": "Inaugaration",
+          "venue": "Auditorium",
+          "start_time": "18:00",
+          "end_time": "19:00"
         },
         {
-          "id": 1,
-          "event_name": "states of dress",
-          "venue": "Hall 2",
-          "start_time": "17:00",
-          "end_time": "18:30"
-        }
-      ]
-    },
+          "id": 2,
+          "event_name": "Saaz",
+          "venue": "Auditorium",
+          "start_time": "19:00",
+          "end_time": "22:00"
+        } ]
+    } ,
     {
       "id": 2,
-      "day": "Day 2",
-      "date": "08/01/20",
+      "day": "Day 1",
+      "date": "31/01/2020",
       "event": [
         {
           "id": 1,
-          "event_name": "Rock-O-Phonix",
-          "venue": "Hall 2",
-          "start_time": "14:00",
+          "event_name": "Theatrix(Prelims)",
+          "venue": "Auditorium",
+          "start_time": "7:30",
+          "end_time": "12:00"
+        },
+        {
+          "id": 2,
+          "event_name": "Creator's Camp",
+          "venue": "Auditorium",
+          "start_time": "12:00",
           "end_time": "14:30"
         },
         {
-          "id": 1,
-          "event_name": "Mr & Ms Alcheringa",
-          "venue": "Hall 1",
-          "start_time": "18:00",
-          "end_time": "19:30"
+          "id": 3,
+          "event_name": "Electric Heels",
+          "venue": "Auditorium",
+          "start_time": "14:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 4,
+          "event_name": "Choir(Prelims and Finals)",
+          "venue": "Mini Auditorium",
+          "start_time": "8:30",
+          "end_time": "14:00"
+        },
+        {
+          "id": 5,
+          "event_name": "Alcher's Got Talent",
+          "venue": "Mini Auditorium",
+          "start_time": "15:00",
+          "end_time": "18:30"
+        },
+        {
+          "id": 6,
+          "event_name": "So You Think You Can Dance(Prelims and Finals)",
+          "venue": "EXPO Stage",
+          "start_time": "9:30",
+          "end_time": "15:00"
+        },
+        {
+          "id": 7,
+          "event_name": "Proshow",
+          "venue": "EXPO Stage",
+          "start_time": "16:00",
+          "end_time": "19:00"
+        },
+        {
+          "id": 8,
+          "event_name": "Raga High(Prelims)",
+          "venue": "Manas Community Hall",
+          "start_time": "8:00",
+          "end_time": "14:30"
+        },
+        {
+          "id": 9,
+          "event_name": "Proshow",
+          "venue": "Manas Community Hall",
+          "start_time": "16:00",
+          "end_time": "18:00"
+        },
+        {
+          "id": 10,
+          "event_name": "Gully Cricket",
+          "venue": "Graffiti Wall(Behind)",
+          "start_time": "8:30",
+          "end_time": "17:00"
+        },
+        {
+          "id": 11,
+          "event_name": "5v5 Football",
+          "venue": "athletics Field",
+          "start_time": "8:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 12,
+          "event_name": "3v3 Basketball",
+          "venue": "Basketball court",
+          "start_time": "9:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 13,
+          "event_name": "3v3 Volleyball",
+          "venue": "Volleyball court",
+          "start_time": "8:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 14,
+          "event_name": "Ink The Tee",
+          "venue": "Library shed",
+          "start_time": "9:00",
+          "end_time": "12:00"
+        },
+        {
+          "id": 15,
+          "event_name":"States Of Dress",
+          "venue": "Library shed",
+          "start_time": "12:00",
+          "end_time": "15:00"
+        },
+        {
+          "id": 16,
+          "event_name": "Live Sketching",
+          "venue": "Library shed",
+          "start_time": "15:00",
+          "end_time": "18:00"
+        },
+        {
+          "id": 17,
+          "event_name": "Clay Modeling",
+          "venue": "Library Basement",
+          "start_time": "12:00",
+          "end_time": "15:30"
+        },
+        {
+          "id": 18,
+          "event_name": "Flickeringa",
+          "venue": "Swimming Pool & Football Field",
+          "start_time": "9:00",
+          "end_time": "19:00"
+
+        },
+        {
+          "id": 19,
+          "event_name": "Just-A-Minute",
+          "venue": "Lecture Hall 3",
+          "start_time": "10:00",
+          "end_time": "1:00"
+        },
+        {
+          "id": 20,
+          "event_name": "Rock-o-Phonix(prelims)",
+          "venue": "Rocko Stage",
+          "start_time": "7:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 21,
+          "event_name": "Model United Nations",
+          "venue": "Conference Hall",
+          "start_time": "8:30",
+          "end_time": "17:00"
+
+        },
+        {
+          "id": 22,
+          "event_name": "Parliamentry Debate",
+          "venue": "Core 1",
+          "start_time": "7:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 23,
+          "event_name": "North East Social Summit(NESS)",
+          "venue": "Senate Hall",
+          "start_time": "9:30",
+          "end_time": "17:00"
+        },
+        {
+          "id": 24,
+          "event_name": "Crossfade(Prelims)",
+          "venue": "Old SAC Wall",
+          "start_time": "9:00",
+          "end_time": "16:30"
+
+        },
+        {
+          "id": 25,
+          "event_name": "Food Stalls",
+          "venue": "Pronite Arena",
+          "start_time": "10:00",
+          "end_time": "19:00"
+        },
+        {
+          "id": 26,
+          "event_name": "Pronites",
+          "venue": "Pronite Arena",
+          "start_time": "19:00",
+          "end_time": "22:00"
         }
       ]
     },
     {
       "id": 3,
-      "day": "Day 3",
-      "date": "09/01/20",
+      "day": "Day 2",
+      "date": "01/02/20",
       "event": [
         {
           "id": 1,
-          "event_name": "Rock-O-Phonix",
-          "venue": "Hall 2",
-          "start_time": "14:00",
+          "event_name": "theatrix",
+          "venue": "auditorium",
+          "start_time": "07:30",
+          "end_time": "11:00"
+        },
+        {
+          "id": 2,
+          "event_name": "creaters camp",
+          "venue": "auditorium",
+          "start_time": "11:00",
+          "end_time": "12:30"
+        },
+        {
+          "id": 3,
+          "event_name": "haute couture",
+          "venue": "auditorium",
+          "start_time": "12:30",
+          "end_time": "16:00"
+        },
+        {
+          "id": 4,
+          "event_name": "electric heels",
+          "venue": "auditorium",
+          "start_time": "16:00",
+          "end_time": "17:30"
+        },
+        {
+          "id": 5,
+          "event_name": "Navras(prelims)",
+          "venue": " Mini auditorium",
+          "start_time": "11:00",
+          "end_time": "12:30"
+        },
+        {
+          "id": 6,
+          "event_name": "monodrama",
+          "venue": " Mini auditorium",
+          "start_time": "13:00",
+          "end_time": "15:30"
+        },
+        {
+          "id": 7,
+          "event_name": "Navras(Final)",
+          "venue": " Mini auditorium",
+          "start_time": "15:30",
+          "end_time": "19:00"
+        },
+        {
+          "id": 8,
+          "event_name": "North east EXPO",
+          "venue": "EXPO stage",
+          "start_time": "08:30",
+          "end_time": "15:00"
+        },
+        {
+          "id": 9,
+          "event_name": "Proshow",
+          "venue": "EXPO stage",
+          "start_time": "16:00",
+          "end_time": "19:00"
+        },
+        {
+          "id": 10,
+          "event_name": "Unplugged(Prelims)",
+          "venue": "Manas Communtiy Hall",
+          "start_time": "08:30",
+          "end_time": "13:30"
+        },
+        {
+          "id": 11,
+          "event_name": "Rap Battle",
+          "venue": "Manas Communtiy Hall",
+          "start_time": "14:30",
+          "end_time": "19.00"
+        },
+        {
+          "id": 12,
+          "event_name": "Arm Wrestling",
+          "venue": "Graffiti Wall(Front)",
+          "start_time": "09:30",
+          "end_time": "13:30"
+        },
+        {
+          "id": 13,
+          "event_name": "Gully Cricket",
+          "venue": "Graffiti Wall(Behind)",
+          "start_time": "08.30",
+          "end_time": "17:00"
+        },
+        {
+          "id": 14,
+          "event_name": "5v5 Football",
+          "venue": "Athletics Field",
+          "start_time": "08:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 15,
+          "event_name": "3v3 Basketball",
+          "venue": "Basketball Court",
+          "start_time": "09:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 16,
+          "event_name": "3v3 Volleyball",
+          "venue": "Volleyball Court",
+          "start_time": "09:30",
+          "end_time": "17:30"
+        },
+        {
+          "id": 17,
+          "event_name": "Who is it ?",
+          "venue": "Library Shed",
+          "start_time": "13:00",
+          "end_time": "16:30"
+        },
+        {
+          "id": 18,
+          "event_name": "Graffiti",
+          "venue": "Library Basement",
+          "start_time": "11:30",
           "end_time": "14:30"
         },
         {
-          "id": 1,
-          "event_name": "Mr & Ms Alcheringa",
-          "venue": "Hall 1",
-          "start_time": "18:00",
-          "end_time": "19:30"
+          "id": 19,
+          "event_name": "Flickeringa",
+          "venue": "Swimming Pool ",
+          "start_time": "09:00",
+          "end_time": "19:00"
+        },
+        {
+          "id": 20,
+          "event_name": "Flickeringa",
+          "venue": "Football Field",
+          "start_time": "09:00",
+          "end_time": "19:00"
+        },
+        {
+          "id": 21,
+          "event_name": "Mr And Ms Alcheringa(Prelims)",
+          "venue": "Lecture Hall1",
+          "start_time": "09:30",
+          "end_time": "16:30"
+        },
+        {
+          "id": 22,
+          "event_name": "Poetry Slam(Hindi)",
+          "venue": "Lecture Hall2",
+          "start_time": "10:30",
+          "end_time": "15:00"
+        },
+        {
+          "id": 23,
+          "event_name": "Business Quiz",
+          "venue": "Lecture Hall3",
+          "start_time": "09:30",
+          "end_time": "12:30"
+        },
+        {
+          "id": 24,
+          "event_name": "General Quiz",
+          "venue": "Lecture Hall3",
+          "start_time": "13:00",
+          "end_time": "16:00"
+        },
+        {
+          "id": 25,
+          "event_name": "Rock-O-phonix(Prelims)",
+          "venue": "Rocko Stage",
+          "start_time": "08:00",
+          "end_time": "18:30"
+        },
+        {
+          "id": 26,
+          "event_name": "Model United Nations",
+          "venue": "Conference",
+          "start_time": "08:30",
+          "end_time": "17:00"
+        },
+        {
+          "id": 27,
+          "event_name": "Parliamentry Debate",
+          "venue": "Core 1",
+          "start_time": "08:30",
+          "end_time": "18:30"
+        },
+        {
+          "id": 28,
+          "event_name": "North East social Summit (Ness)",
+          "venue": "Senate Hall",
+          "start_time": "09:30",
+          "end_time": "15:00"
+        },
+        {
+          "id": 29,
+          "event_name": "Step up",
+          "venue": "Old sac Wall",
+          "start_time": "08:00",
+          "end_time": "14:00"
+        },
+        {
+          "id": 30,
+          "event_name": "Tattva Creations",
+          "venue": "Old Sac Wall",
+          "start_time": "14:30",
+          "end_time": "18:00"
+        },
+        {
+          "id": 31,
+          "event_name": "Food Stalls",
+          "venue": "Pronite Arena",
+          "start_time": "11:00",
+          "end_time": "19:00"
+        },
+        {
+          "id": 32,
+          "event_name": "Pronite",
+          "venue": "Pronite Arena",
+          "start_time": "19:00",
+          "end_time": "22:00"
         }
       ]
+    },
+    {
+          "id": 4,
+          "day": "Day 3",
+          "date": "02/02/20",
+          "event": [
+            {
+              "id": 1,
+              "event_name": "Mr and Mrs Alcheringa",
+              "venue": "Auditorium",
+              "start_time": "8.30",
+              "end_time": "11:00"
+            },
+            {
+              "id": 2,
+              "event_name": "Haute Couture",
+              "venue": "Auditorium",
+              "start_time": "11:00",
+              "end_time": "14:00"
+            },
+            {
+              "id": 3,
+              "event_name": "Creator's Camp",
+              "venue": "Auditorium",
+              "start_time": "14:00",
+              "end_time": "16:30"
+
+            },
+            {
+              "id": 4,
+              "event_name": "Dancing Duo (Prelims)",
+              "venue": "Mini Auditorium",
+              "start_time": "8:30",
+              "end_time": "11:30"
+
+            },
+            {
+              "id": 5,
+              "event_name": "Dancing Duo (Final)",
+              "venue": "Mini Auditorium",
+              "start_time": "13:30",
+              "end_time": "15:30"
+
+            },
+            {
+              "id": 6,
+              "event_name": "Halla Bol",
+              "venue": "Auditorium Park",
+              "start_time": "13:00",
+              "end_time": "18:00"
+
+            },
+            {
+              "id": 7,
+              "event_name": "North East EXPO",
+              "venue": "EXPO Stage",
+              "start_time": "09:00",
+              "end_time": "16:00"
+
+            },
+            {
+              "id": 8,
+              "event_name": "Proshow",
+              "venue": "EXPO Stage",
+              "start_time": "15:30",
+              "end_time": "18:30"
+
+            },
+            {
+              "id": 9,
+              "event_name": "Raga High (Finals)",
+              "venue": "Manas Coummunity Hall",
+              "start_time": "08:30",
+              "end_time": "13:30"
+
+            },
+            {
+              "id": 10,
+              "event_name": "Unplugged(Finals)",
+              "venue": "Manas Coummunity Hall",
+              "start_time": "15:00",
+              "end_time": "17:00"
+
+            },
+            {
+              "id": 11,
+              "event_name": "Gully Cricket",
+              "venue": "Graffiti Wall(Behind)",
+              "start_time": "08:30",
+              "end_time": "16:30"
+
+            },
+            {
+              "id": 12,
+              "event_name": "5v5 Football",
+              "venue": "Athletics Field",
+              "start_time": "08:30",
+              "end_time": "17:30"
+
+            },
+            {
+              "id": 13,
+              "event_name": "Face Art",
+              "venue": "Library Shed",
+              "start_time": "08:30",
+              "end_time": "12:00"
+
+            },
+            {
+              "id": 14,
+              "event_name": "Rangoli",
+              "venue": "Library Shed",
+              "start_time": "12:30",
+              "end_time": "16:00"
+
+            },
+            {
+              "id": 15,
+              "event_name": "Flickeringa",
+              "venue": "Football Field",
+              "start_time": "09:00",
+              "end_time": "19:00"
+
+            },
+            {
+              "id": 16,
+              "event_name": "Flickeringa",
+              "venue": "Swimming Pool",
+              "start_time": "09:00",
+              "end_time": "19:00"
+
+            },
+            {
+              "id": 17,
+              "event_name": "Poetry Slam (English)",
+              "venue": "Lecture Hall 1",
+              "start_time": "08:30",
+              "end_time": "14:30"
+
+            },
+            {
+              "id": 18,
+              "event_name": "Sports Quiz",
+              "venue": "Lecture Hall 2",
+              "start_time": "08:30",
+              "end_time": "11:30"
+
+            },
+            {
+              "id": 19,
+              "event_name": "India Quiz",
+              "venue": "Lecture Hall 2",
+              "start_time": "12:00",
+              "end_time": "15:00"
+
+            },
+            {
+              "id": 20,
+              "event_name": "Mehfill-e-Alcheringa",
+              "venue": "Lecture Hall 3",
+              "start_time": "10:30",
+              "end_time": "14:30"
+            },
+            {
+              "id": 21,
+              "event_name": "Voice Of Alcheringa(Prelims And Finals)",
+              "venue": "Lecture Hall4",
+              "start_time": "07:30",
+              "end_time": "16:00"
+            },
+            {
+              "id": 22,
+              "event_name": "Rock-O-Phonix(Finals)",
+              "venue": "Rocko stage",
+              "start_time": "08:30",
+              "end_time": "18:30"
+            },
+            {
+              "id": 23,
+              "event_name": "Model United Nations",
+              "venue": "Conference Hall",
+              "start_time": "08:30",
+              "end_time": "16:30"
+            },
+            {
+              "id": 24,
+              "event_name": "Parliamentry Debate",
+              "venue": "Core 1",
+              "start_time": "08:30",
+              "end_time": "18:30"
+            },
+            {
+              "id": 25,
+              "event_name": "Crossfade(Finals)",
+              "venue": "Old Sac Wall",
+              "start_time": "08:30",
+              "end_time": "13:00"
+            },
+            {
+              "id": 26,
+              "event_name": "KTM stunt Show",
+              "venue": "Old Sac Wall",
+              "start_time": "15:00",
+              "end_time": "19:00"
+            },
+            {
+              "id": 27,
+              "event_name": "Food Stalls",
+              "venue": "Pronite Arena",
+              "start_time": "11:00",
+              "end_time": "19:00"
+            },
+            {
+              "id": 28,
+              "event_name": "Pronite",
+              "venue": "Pronite Arena",
+              "start_time": "19:00",
+              "end_time": "22:00"
+            }]
     }
-  ]
-}
+    ]}

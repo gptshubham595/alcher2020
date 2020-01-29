@@ -1,5 +1,7 @@
 package com.app.alcheringa2020.map;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -29,11 +31,14 @@ public class MapList extends AppCompatActivity {
     private ArrayList<mapClass> itemList;
     private EditText search;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Context context;
+        dialog= new ProgressDialog(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,14 +48,6 @@ public class MapList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
-        itemList.add(new mapClass("dance","lecture hall complex","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("dance2","lecture hall complex","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("music","lecture hall complex","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("fineart","lecture hall complex","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("folk dance","conference hall","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("dance6","lecture hall complex","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("mujra","library central","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
-        itemList.add(new mapClass("dance8","lecture hall complex","2nf fab 2019","9:00pm","26.185665924","91.68833058"));
 
         adapter = new mapAdapter(itemList,this);
         recyclerView.setAdapter(adapter);
@@ -71,7 +68,8 @@ public class MapList extends AppCompatActivity {
                 filter(s.toString());
             }
         });
-
+        dialog.setMessage("Loading ..");
+        dialog.show();
         firestore.collection("events").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -83,6 +81,7 @@ public class MapList extends AppCompatActivity {
                 }else{
                     Toast.makeText(MapList.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
+                dialog.dismiss();
             }
         });
 
