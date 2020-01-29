@@ -94,7 +94,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

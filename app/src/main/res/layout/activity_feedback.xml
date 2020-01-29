@@ -24,6 +24,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:gravity="center"
+        android:visibility="gone"
         android:layout_marginTop="-20dp"
         android:layout_below="@id/logo"
         android:id="@+id/email"

@@ -24,11 +24,13 @@ import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.authentication.LoginActivity;
 import com.app.alcheringa2020.authentication.SharedPrefManager;
+import com.app.alcheringa2020.authentication.Verify;
 import com.app.alcheringa2020.base.BaseFragment;
 import com.app.alcheringa2020.external.ThemeUtils;
 import com.app.alcheringa2020.feed.FeedFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import maes.tech.intentanim.CustomIntent;
 
 /**
  * Created by Jiaur Rahman on 09-Jan-20.

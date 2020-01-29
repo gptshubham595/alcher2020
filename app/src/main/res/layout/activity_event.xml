@@ -3,229 +3,238 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?colorAccent"
+    android:background="@color/colorAccent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar_main"
-        layout="@layout/toolbar" />
+        <include
+            android:id="@+id/toolbar_main"
+            layout="@layout/toolbar" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_main">
-<!--        android:layout_marginBottom="60dp"-->
-
-
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingBottom="30dp">
+            android:layout_below="@+id/toolbar_main">
 
-            <include layout="@layout/adapter_event" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="?colorPrimary"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:paddingBottom="30dp">
+
+                <include layout="@layout/adapter_event" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:id="@+id/competitionTxt"
+                            style="@style/textBold"
+                            android:textColor="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="6" />
+
+                        <TextView
+                            android:id="@+id/bountyTxt"
+                            style="@style/textBold"
+                            android:textColor="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4" />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/competitionTxt"
-                        style="@style/textBold"
-                        android:textColor="?colorDarkMode"
-                        android:layout_width="0dp"
+                        android:textColor="@color/white"
+                        android:id="@+id/descriptionTxt"
+                        style="@style/textDescription"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_weight="6" />
+                        android:layout_marginTop="20dp" />
 
-                    <TextView
-                        android:id="@+id/bountyTxt"
-                        style="@style/textBold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4" />
+
                 </LinearLayout>
 
-                <TextView
-                    android:textColor="?colorDarkMode"
-                    android:id="@+id/descriptionTxt"
-                    style="@style/textDescription"
+                <androidx.cardview.widget.CardView
+                    style="@style/card_style"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp" />
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/colorPrimary">
+                    <LinearLayout
+                        android:id="@+id/ruleLyt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:id="@+id/ruleTxt"
+                            android:textColor="@color/white"
+                            style="@style/textBold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rules" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/ruleRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone"/>
+                    </LinearLayout>
 
 
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:id="@+id/prelimsLyt"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/prelimsTxt"
+                            style="@style/textBold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Prelims Theme" />
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/prelimsDescription"
+                            style="@style/textDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/app_name"
+                            />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:id="@+id/finalsLyt"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/finalsTxt"
+                            style="@style/textBold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Finals Theme" />
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/finalsDescription"
+                            style="@style/textDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/app_name"
+                             />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    style="@style/card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:id="@+id/judgeLyt"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/judgeTxt"
+                            style="@style/textBold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Judging Criteria" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/judgeRecycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone"
+                            />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                style="@style/card_style"
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/registerLyt"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/event_color"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="?colorDarkMode"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="?colorPrimary">
-                <LinearLayout
-                    android:id="@+id/ruleLyt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:id="@+id/ruleTxt"
-                        android:textColor="?colorDarkMode"
-                        style="@style/textBold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Rules" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/ruleRecycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:visibility="gone"/>
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                style="@style/card_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="?colorPrimary">
-
-                <LinearLayout
-                    android:id="@+id/prelimsLyt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:textColor="?colorDarkMode"
-                        android:id="@+id/prelimsTxt"
-                        style="@style/textBold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Prelims Theme" />
-
-                    <TextView
-                        android:textColor="?colorDarkMode"
-                        android:id="@+id/prelimsDescription"
-                        style="@style/textDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="@string/app_name"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                style="@style/card_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="?colorPrimary">
-
-                <LinearLayout
-                    android:id="@+id/finalsLyt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:textColor="?colorDarkMode"
-                        android:id="@+id/finalsTxt"
-                        style="@style/textBold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Finals Theme" />
-
-                    <TextView
-                        android:textColor="?colorDarkMode"
-                        android:id="@+id/finalsDescription"
-                        style="@style/textDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:text="@string/app_name"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                style="@style/card_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="?colorPrimary">
-
-                <LinearLayout
-                    android:id="@+id/judgeLyt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:textColor="?colorDarkMode"
-                        android:id="@+id/judgeTxt"
-                        style="@style/textBold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Judging Criteria" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/judgeRecycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:visibility="gone"/>
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Register"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
-
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/registerLyt"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/event_color"
-        android:orientation="vertical">
-
-        <TextView
-            android:textColor="?colorDarkMode"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Register"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-
-</RelativeLayout>
+    </RelativeLayout>

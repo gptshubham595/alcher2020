@@ -26,6 +26,8 @@ import androidx.core.app.ActivityCompat;
 
 import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -45,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView edit_profile;
     CircleImageView profile_image;
     private int RESULT_LOAD_IMAGE = 101;
+    RelativeLayout gc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +59,15 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
-
+        gc=findViewById(R.id.gc);
+        gc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.alcheringa.in/gc.html"); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
         signout = findViewById(R.id.signout);
         textViewUsername = (TextView) findViewById(R.id.textViewUsername);
         textViewUserEmail = (TextView) findViewById(R.id.textViewUseremail);
@@ -100,6 +111,10 @@ public class ProfileActivity extends AppCompatActivity {
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    FacebookSdk.sdkInitialize(getApplicationContext());
+                    LoginManager.getInstance().logOut();
+                }catch (Exception e){e.printStackTrace();}
                 SharedPrefManager.getInstance(ProfileActivity.this).logout();
                 finish();
                 startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
@@ -145,7 +160,7 @@ public class ProfileActivity extends AppCompatActivity {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.flush();
             fos.close();
-            Toast.makeText(this, "SAVED at " + imagepath, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "SAVED", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }

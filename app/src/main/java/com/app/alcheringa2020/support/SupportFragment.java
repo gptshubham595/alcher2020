@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.app.alcheringa2020.ContactUs;
+import com.app.alcheringa2020.Developer;
 import com.app.alcheringa2020.Feedback;
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.base.BaseFragment;
@@ -44,9 +45,10 @@ public class SupportFragment extends BaseFragment {
         fragment_container = container;
         context = getActivity().getApplicationContext();
         view = inflater.inflate(R.layout.fragment_support, container, false);
-        RelativeLayout feedback_rlt,contact_rlt,sponsor_rlt,hospitality_rlt;
+        RelativeLayout feedback_rlt,contact_rlt,sponsor_rlt,hospitality_rlt,developers_rlt;
         feedback_rlt=view.findViewById(R.id.feedback_rlt);
         contact_rlt=view.findViewById(R.id.contact_rlt);
+        developers_rlt=view.findViewById(R.id.developers_rlt);
 
         feedback_rlt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +60,12 @@ public class SupportFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, ContactUs.class));
+            }
+        });
+        developers_rlt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, Developer.class));
             }
         });
 //        sponsor_rlt.setOnClickListener(new View.OnClickListener() {

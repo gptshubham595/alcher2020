@@ -2,12 +2,21 @@ package com.app.alcheringa2020.events;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
-import com.app.alcheringa2020.external.CommonFunctions;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.app.alcheringa2020.authentication.Constants;
+import com.app.alcheringa2020.authentication.RequestHandler;
 import com.app.alcheringa2020.events.model.ItemModel;
 import com.app.alcheringa2020.events.model.JudgeModel;
 import com.app.alcheringa2020.events.model.ProgrammeModel;
 import com.app.alcheringa2020.events.model.RuleModel;
+import com.app.alcheringa2020.external.CommonFunctions;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,58 +24,26 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Created by Jiaur Rahman on 06-Jan-20.
- */
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 public class EventsDataModel {
-
     public static ArrayList<ProgrammeModel> programmeModelArrayList(Context context) {
         ArrayList<ProgrammeModel> programmeModelArrayList = new ArrayList<>();
-
-        String event="{\"programme\": [{" +
-                "          \"id\": 1," +
-                "          \"category\": \"Vogue\"," +
-                "          \"image\": \"\"," +
-                "          \"item\": [" +
-                "            {" +
-                "              \"id\": 1," +
-                "              \"item\": \"Haute Couture\"," +
-                "              \"image\": \"\"," +
-                "              \"competition\": \"Fashion Designing Competition\"," +
-                "              \"bounty\": \"400\"," +
-                "              \"description\": \"Ever felt \"," +
-                "              \"rules\": [" +
-                "                {" +
-                "                  \"id\": 1," +
-                "                  \"rule\": \"Every team \"" +
-                "                }," +
-                "                {" +
-                "                  \"id\": 2," +
-                "                  \"rule\": \"Every team \"" +
-                "               }]," +
-                "              \"prelims_theme\": {" +
-                "                \"header\": \"Seven \"," +
-                "                \"theme\": \"The \"" +
-                "              }," +
-                "              \"final_theme\": {" +
-                "                \"header\": \"\"," +
-                "                \"theme\": \"This \"" +
-                "              }," +
-                "              \"judge_criteria\": [" +
-                "                {\"id\": 1,\"criteria\": \"Creativity \"}," +
-                "                {\"id\": 2,\"criteria\": \"Standard of Design - 10%\"}]" +
-                "            }" +
-                "           ]" +
-                "          }" +
-                "         ]" +
-                "       }";
+        String event="";
 
         try {
-//            String json = new String(buffer, "UTF-8");
-
-            JSONObject jsonObject = new JSONObject(event);
-//            JSONObject jsonObject = new JSONObject()
+            JSONObject jsonObject;
+            try{
+                jsonObject=new JSONObject(getevent());
+                Toast.makeText(getApplicationContext(), "REFRESHED", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "REFRESHED", Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, ""+jsonObject, Toast.LENGTH_SHORT).show();
+            }
+            catch(Exception e){e.printStackTrace();
+                jsonObject = CommonFunctions.loadAssetsJsonObj("item.json",context);
+            }
             Log.d("JSON2===",""+jsonObject);
             JSONArray proJsonArray = jsonObject.getJSONArray("programme");
 
@@ -85,7 +62,7 @@ public class EventsDataModel {
                     String itemCompetition = itemObject.getString("competition");
                     String itemBounty = itemObject.getString("bounty");
                     String itemDescription = itemObject.getString("description");
-
+//                    Toast.makeText(context, itemDescription, Toast.LENGTH_SHORT).show();
                     JSONArray ruleArray = itemObject.getJSONArray("rules");
                     ArrayList<RuleModel> ruleModelArrayList = new ArrayList<>();
                     for (int k = 0; k < ruleArray.length(); k++) {
@@ -120,5 +97,46 @@ public class EventsDataModel {
             e.printStackTrace();
         }
         return programmeModelArrayList;
+    }
+
+    private  static String getevent() {
+        final String[] res = {""};
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_EventsNEW,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            res[0] =response;
+//                            jsonObject[0] = new JSONObject(response);
+
+//                            Log.d("DUPJSON3",jsonObject[0]+"");
+
+//                            Toast.makeText(getApplicationContext(), ""+jsonObject[0], Toast.LENGTH_SHORT).show();
+
+//                            json=jsonObject[0];
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                return params;
+            }
+        };
+
+        stringRequest.setShouldCache(false);
+        RequestHandler.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);
+
+        return res[0];
     }
 }

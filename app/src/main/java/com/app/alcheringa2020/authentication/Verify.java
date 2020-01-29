@@ -91,14 +91,19 @@ public class Verify extends AppCompatActivity {
                                         .userVerified(
                                                 jsonObject.getString("verified")
                                         );
-
-                                Intent i = new Intent(Verify.this, MainActivity.class);
+                                Intent i = new Intent(Verify.this, LoginActivity.class);
                                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(i);
                                 CustomIntent.customType(Verify.this, "fadein-to-fadeout");
                             } else {
                                 Toast.makeText(Verify.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }
+
+                            Intent i = new Intent(Verify.this, LoginActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                            CustomIntent.customType(Verify.this, "fadein-to-fadeout");
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -109,7 +114,7 @@ public class Verify extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -161,7 +166,7 @@ public class Verify extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

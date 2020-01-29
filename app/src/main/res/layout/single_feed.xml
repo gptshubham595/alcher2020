@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:elevation="3sp"
+    android:layout_margin="5dp"
     android:layout_marginBottom="8sp"
     android:layout_height="wrap_content">
 
-
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="#2B263C"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
     <TextView
         android:id="@+id/single_feed_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:padding="10sp"
         android:text="TextView" />
@@ -29,7 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:padding="10sp"
         android:text="TextView" />
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

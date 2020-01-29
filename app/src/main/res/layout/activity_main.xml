@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?colorAccent"
+    android:background="@color/colorAccent"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?colorPrimary"
+        android:background="#161133"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:src="?colorAccent"
+                    android:src="@color/colorAccent"
                     app:civ_border_color="#ffff"
                     app:civ_border_width="0dp" />
 
@@ -43,7 +43,7 @@
                     android:id="@+id/profile_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/profile"
+                    android:src="@drawable/user"
                     android:visibility="visible" />
 
                 <ImageView
@@ -52,7 +52,7 @@
                     android:layout_height="match_parent"
                     android:onClick="backOption"
                     android:padding="8dp"
-                    android:src="?arrow_back"
+                    android:src="@drawable/ic_arrow_back"
                     android:visibility="gone" />
             </RelativeLayout>
 
@@ -61,8 +61,8 @@
                 android:id="@+id/main_logo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="?main_logo"
-                android:layout_marginLeft="10dp"
+                android:src="@drawable/alcher"
+                android:layout_marginLeft="80dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/noti_rlt"
                 app:layout_constraintStart_toEndOf="@+id/home_rlt"
@@ -74,7 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="?colorDarkMode"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +84,7 @@
 
             <RelativeLayout
                 android:id="@+id/noti_rlt"
-                android:layout_width="115dp"
+                android:layout_width="95dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -94,8 +94,8 @@
                 <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="?colorAccent"
-                    android:layout_marginRight="-70dp"
+                    android:src="#4AD1CBE9"
+                    android:layout_marginRight="-50dp"
                     app:civ_border_color="#ffff"
                     app:civ_border_width="0dp" />
 
@@ -104,8 +104,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8dp"
-                    android:layout_marginRight="-70dp"
-                    android:src="?notification_image"
+                    android:layout_marginRight="-50dp"
+                    android:src="@drawable/ic_notification_dark"
                     android:visibility="visible" />
 
                 <ImageView
@@ -113,8 +113,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8dp"
-                    android:layout_marginRight="-70dp"
-                    android:src="?search_image"
+                    android:layout_marginRight="-50dp"
+                    android:src="@drawable/ic_search_dark"
                     android:visibility="gone" />
 
                 <ImageView
@@ -122,17 +122,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8dp"
-                    android:layout_marginRight="-70dp"
+                    android:layout_marginRight="-50dp"
                     android:src="@drawable/ic_add_dark"
                     android:visibility="gone" />
 
-                <ImageView
+             <ImageView
                     android:id="@+id/fav_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="8dp"
+                 android:layout_marginRight="-50dp"
                     android:src="@drawable/ic_fav"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
             </RelativeLayout>
 
 
@@ -143,7 +144,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="?colorAccent"
+        android:background="#1E1A33"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,6 +158,8 @@
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_map_dark"
         android:elevation="3dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:rippleColor="#372752"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintRight_toRightOf="parent" />
@@ -166,9 +169,9 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?colorPrimary"
-        app:itemTextColor="@color/bottom_nav_color"
-        app:itemIconTint="@color/bottom_nav_color"
+        android:background="#161133"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/event_color"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

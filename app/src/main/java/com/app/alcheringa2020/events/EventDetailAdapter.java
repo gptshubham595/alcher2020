@@ -7,11 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.events.model.ItemModel;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -60,6 +64,8 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
 
     @Override
     public void onBindViewHolder(EventDetailAdapter.ViewHolder holder, int position) {
+//        Toast.makeText(mContext, itemModelArrayList.get(position).getItemImage(), Toast.LENGTH_SHORT).show();
+        Picasso.get().load(itemModelArrayList.get(position).getItemImage()).placeholder(R.drawable.event2).into(holder.item_image);
         holder.child_textView.setText(itemModelArrayList.get(position).getItem());
         holder.eventId = itemModelArrayList.get(position).getItemId();
         Typeface typeface = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "font/exo_regular.ttf");

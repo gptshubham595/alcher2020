@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="#F4F4F4"
     android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_margin="10dp"
         android:layout_marginBottom="60dp">
 
         <FrameLayout
@@ -35,14 +37,14 @@
 
 
                     <TextView
-                        android:textColor="?colorDarkMode"
+                        android:textColor="@color/event_color"
                         android:id="@+id/textViewUsername"
                         style="@style/textBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:gravity="center"
-                        android:text="Priyanshu Jain" />
+                        android:text=" Jain" />
 
                     <TextView
                         android:textColor="?colorDarkMode"
@@ -140,7 +142,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="top|center_horizontal"
                 android:layout_marginTop="100dp"
-                android:src="@drawable/profile"
+                android:src="@drawable/user"
                 android:translationZ="10dp"
                 app:civ_border_color="#ffff"
                 app:civ_border_width="0dp" />
@@ -167,6 +169,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
+                android:id="@+id/gc"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 

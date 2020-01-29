@@ -1,11 +1,14 @@
 package com.app.alcheringa2020.events;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,25 +17,24 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.authentication.Constants;
-import com.app.alcheringa2020.authentication.LoginActivity;
 import com.app.alcheringa2020.authentication.RequestHandler;
-import com.app.alcheringa2020.authentication.Verify;
 import com.app.alcheringa2020.base.BaseActivity;
-import com.app.alcheringa2020.external.AppConstants;
 import com.app.alcheringa2020.events.model.ItemModel;
 import com.app.alcheringa2020.events.model.JudgeModel;
 import com.app.alcheringa2020.events.model.ProgrammeModel;
 import com.app.alcheringa2020.events.model.RuleModel;
+import com.app.alcheringa2020.external.AppConstants;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,13 +42,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import maes.tech.intentanim.CustomIntent;
+import static com.app.alcheringa2020.events.EventsDataModel.programmeModelArrayList;
 
 /**
  * Created by Jiaur Rahman on 04-Jan-20.
  */
 public class EventActivity extends BaseActivity implements EventListner {
     String TAG = EventActivity.class.getSimpleName();
+
     int programmeID;
     String categoryName, eventName;
     TextView text_title, competitionTxt, bountyTxt, descriptionTxt, prelimsDescription, finalsDescription;
@@ -56,6 +59,8 @@ public class EventActivity extends BaseActivity implements EventListner {
     ArrayList<ItemModel> itemModelArrayList;
     RuleAdapter ruleAdapter;
     LinearLayout registerLyt;
+    Button btn;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +69,7 @@ public class EventActivity extends BaseActivity implements EventListner {
         initView();
         initData();
         initListner();
+
     }
 
     private void initView() {
@@ -90,6 +96,7 @@ public class EventActivity extends BaseActivity implements EventListner {
 
         judgeRecycler.setLayoutManager(new LinearLayoutManager(context));
         judgeRecycler.setItemAnimator(new DefaultItemAnimator());
+
     }
 
     private void initData() {
@@ -102,8 +109,8 @@ public class EventActivity extends BaseActivity implements EventListner {
             text_title.setText(categoryName);
             toolbar(eventName);
             itemModelArrayList = new ArrayList<>();
-            for (int i = 0; i < EventsDataModel.programmeModelArrayList(context).size(); i++) {
-                ProgrammeModel programmeModel = EventsDataModel.programmeModelArrayList(context).get(i);
+            for (int i = 0; i < programmeModelArrayList(context).size(); i++) {
+                ProgrammeModel programmeModel = programmeModelArrayList(context).get(i);
                 if (programmeModel.getProId() == programmeID) {
                     itemModelArrayList = programmeModel.getItemModelArrayList();
                     for (int j = 0; j < itemModelArrayList.size(); j++) {
@@ -209,7 +216,6 @@ public class EventActivity extends BaseActivity implements EventListner {
                     judgeRecycler.setAdapter(ruleAdapter);
 
 
-
                     break;
                 }
 
@@ -219,46 +225,8 @@ public class EventActivity extends BaseActivity implements EventListner {
             e.printStackTrace();
         }
     }
-    public void getevents(){
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                Constants.URL_LOGIN,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
 
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
 
-                            Toast.makeText(getApplicationContext(), jsonObject.getString("event_id"), Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), jsonObject.getString("event_name"), Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), jsonObject.getString("image_url"), Toast.LENGTH_LONG).show();
-                            Toast.makeText(getApplicationContext(), jsonObject.getString("description"), Toast.LENGTH_LONG).show();
 
-                            if (!jsonObject.getBoolean("error")) {
-                            } else {
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                return params;
-            }
-        };
-
-        stringRequest.setShouldCache(false);
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
-//
-    }
 }

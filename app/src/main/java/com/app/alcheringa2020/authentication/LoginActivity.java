@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     String id=object.getString("id");
                     String img="https://graph.facebook.com/"+id+"/picture?type=normal";
 
-                    Toast.makeText(LoginActivity.this, "fname", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "fname", Toast.LENGTH_SHORT).show();
 //                    txtemail.setText(email);
 //                    RequestOptions requestOptions = new RequestOptions();
 //                    requestOptions.dontAnimate();
@@ -152,8 +152,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     SharedPrefManager.getInstance(LoginActivity.this).isLogin(1,fname,email);
 
                     Intent i=new Intent(LoginActivity.this, MainActivity.class);
-//                    i.putExtra("img_url",img);
-                    Toast.makeText(LoginActivity.this, ""+img, Toast.LENGTH_SHORT).show();
+                    i.putExtra("img_url",img);
+//                    Toast.makeText(LoginActivity.this, ""+img, Toast.LENGTH_SHORT).show();
                     startActivity(i);
                     CustomIntent.customType(LoginActivity.this, "fadein-to-fadeout");
 
@@ -198,7 +198,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -221,7 +221,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         final String username = editTextUsername.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
 
-        Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
         progressDialog.setMessage("Loggin In user...");
         progressDialog.show();
 
@@ -236,7 +236,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             JSONObject jsonObject = new JSONObject(response);
 
                             Log.d("JSON",jsonObject+"");
-                            Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), jsonObject.getBoolean("error")+"", Toast.LENGTH_SHORT).show();
 
                             Log.d("JSON RES===",""+jsonObject);
 
@@ -246,7 +246,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 startActivity(i);
                                 CustomIntent.customType(LoginActivity.this, "fadein-to-fadeout");
                             }
-                            if(jsonObject.getBoolean("error")){
+                            else{
                                 if(jsonObject.getString("message").equals("ERROR")){
                                     Intent i = new Intent(LoginActivity.this, Verify.class);
                                     i.putExtra("username", username);
@@ -264,7 +264,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

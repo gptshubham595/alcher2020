@@ -7,18 +7,18 @@
       "venue": [
         {
           "id": 1,
-          "venue_name": "Hall 1",
+          "venue_name": "Conferercde ",
           "event": [
             {
               "id": 1,
-              "event_name": "Rock-O-Phonix",
+              "event_name": "skjfdsjk",
               "start_time": "14:00",
               "end_time": "15:00",
               "venue_name": "Hall 1"
             },
             {
               "id": 1,
-              "event_name": "event1",
+              "event_name": "sdfjsdj",
               "start_time": "16:00",
               "end_time": "17:00",
               "venue_name": "Hall 1"
@@ -27,7 +27,7 @@
         },
         {
           "id": 2,
-          "venue_name": "Hall 2",
+          "venue_name": "Auditorum",
           "event": [
             {
               "id": 1,
@@ -47,6 +47,7 @@
         }
       ]
     },
+
     {
       "id": 2,
       "day": "Day 1",
@@ -94,6 +95,7 @@
         }
       ]
     },
+
     {
       "id": 3,
       "day": "Day 2",

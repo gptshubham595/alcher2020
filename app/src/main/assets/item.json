@@ -11,7 +11,71 @@
           "image": "",
           "competition": "Fashion Designing Competition",
           "bounty": "400",
-          "description": "Ever felt ",
+          "description": "Ever felt so thunder seeing someone so immaculately dressed that you run out of cheers and words. Haute Couture, where the most glamorous people show off their skills as they walk the ramp, a fashion show evoking all those creative peeps to put on their thinking caps and come out with the most innovative theme-based fashion show. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Paper Dress Designing Competition",
+          "image": "",
+          "competition": "Fashion Designing Competition",
+          "bounty": "400",
+          "description": "Design the best outfit for your friend using trash. Use your origami and fashion skills to make the perfect dress! . ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Fashion Design and Photoshoot Competition",
+          "image": "",
+          "competition": "Fashion Designing Competition",
+          "bounty": "400",
+          "description": "Fashion Design and Photoshoot Competition . ",
           "rules": [
             {
               "id": 1,
@@ -39,18 +103,147 @@
         }
       ]
     },
+
     {
       "id": 2,
-      "category": "Vogue Nation2",
+      "category": "Class Apart",
       "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
       "item": [
         {
           "id": 1,
-          "item": "Haute Couture",
+          "item": "Rock-O-Phonix",
           "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
-          "competition": "Fashion Designing Competition",
-          "bounty": "400",
-          "description": "Ever felt ",
+          "competition": "Rock Music Competition",
+          "bounty": "200",
+          "description": "As the shredding of the guitars and the beating of the drums picks up steam, heads bang along to the music. A highlight of the festival and an emblem of the talent suffused in the many faces in the crowd, this is one event to hold your breath for. Rock-O-Phonix, the holy grail of rock! The winner takes all...! ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Mr & Mrs.Alcheringa",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Rock Music Competition",
+          "bounty": "200",
+          "description": "One of the most anticipated events of the year, brings you one of its own kind personality competition. Are you up for the challenge? Alcheringa awaits to accolade its next Mr Alcheringa and Ms Alcheringa...!!",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Crossfade",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Rock Music Competition",
+          "bounty": "200",
+          "description": "DJ Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "Alcher Got Talent",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Multi Talent Solo Competition",
+          "bounty": "200",
+          "description": "The entire world’s a stage”, they say. For the people who believe this, for the people with passion and obsession, we have the right stage for you! Do you have a flair towards the extraordinary? Be it comedy, mimicry, acting, magic or any quirky thing you are passionately curious about, we have the stage ready for you! Give the crowd and the judges the time of their lives",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 5,
+          "item": "Rap Battle",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Multi Talent Solo Competition",
+          "bounty": "200",
+          "description": "The entire world’s a stage”, they say. For the people who believe this, for the people with passion and obsession, we have the right stage for you! Do you have a flair towards the extraordinary? Be it comedy, mimicry, acting, magic or any quirky thing you are passionately curious about, we have the stage ready for you! Give the crowd and the judges the time of their lives.",
           "rules": [
             {
               "id": 1,
@@ -78,18 +271,1195 @@
         }
       ]
     },
+
     {
       "id": 3,
-      "category": "Vogue Nation3",
-      "image": "",
+      "category": "Dance",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
       "item": [
         {
           "id": 1,
-          "item": "Haute Couture",
-          "image": "",
-          "competition": "Fashion Designing Competition",
+          "item": "Electric Heels",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Freestyle Group Dance Competition",
+          "bounty": "200",
+          "description": "Dance is a way to find yourself and lose yourself at the same time.A signature event of Alcheringa, Electric heels is a group dance competition, featuring the most talented crews across the nation. Your team, your grooves, your beats, our arena. Are you up for the challenge? ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Step Up",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Street Dance Competition",
+          "bounty": "200",
+          "description": "Why fight when you can dance? Introducing the most exhilarating, vigorous and effervescent face-off you can imagine! The mean and tough streets are unforgiving. Bring out your game face and show us what you got! Presenting Step Up, Dance face-off! ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Dancing Duo",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Duet Dance Competition",
+          "bounty": "200",
+          "description": "We dance for laughter, we dance for tears, we dance for madness, we dance for fears, we dance for hopes, we dance for screams, we are the dancers, we create the dreams. Alcheringa gives you the chance to create these dreams with your partner. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "SUTUCD",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Non-classical Solo Dance",
+          "bounty": "200",
+          "description": "Every day brings a chance for you to draw in a breath, kick off your shoes and dance. Who will be the one? The champion? The one who thinks he can dance!",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 5,
+          "item": "Navras",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Classical Solo Dance",
+          "bounty": "200",
+          "description": "This is what takes us to our roots. Alcheringa strives to give Indian classical dancers a bigger and a better stage with each upcoming edition. Prepare yourselves to witness some of the most intricate rhythms, footwork and spins to have graced this planet! ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 4,
+      "category": "Sports",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "5on5 Football ",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Shorter version of Football",
+          "bounty": "200",
+          "description": "This shorter version of Football is your shot at glory and a chance for you to vindicate your love for the game. Held in one of the football hotspots of the country, this 5-on-5 competition will put your mettle and skills to test unlike any other. Come, play your best shot!  ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Arm Wrestling ",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Arm-Wrestled!",
+          "bounty": "200",
+          "description": "On that Sunday evening before supper at your friends place, or on that holiday you had with your cousins, or in between classes when you had nothing better to do and sought a way to become the cynosure of the class, and before you lost your way in the winding alleys of studies, college and life, what did you do? You Arm-Wrestled! Alcheringa gives you a chance to redeem yourself and win your muscles’ worth ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "3on3 Basketball ",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Shorter version of Basketball",
+          "bounty": "200",
+          "description": "This shorter version of Basketball is your shot at glory and a chance for you to vindicate your love for the game. Come, play your best shot!  ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "Gully Cricket ",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Smash the ball",
+          "bounty": "200",
+          "description": "This takes you to your childhood when you have played cricket in streets with your friends. Alcheringa gives you a chance to remember and cherish these child memories and again. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 5,
+          "item": "3on3 Volleyball ",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Shorter version of Volleyball",
+          "bounty": "200",
+          "description": "This shorter version of Volleyball is your shot at glory and a chance for you to vindicate your love for the game. Come, play your best shot!",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 5,
+      "category": "Movie",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "Director's Cut",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Short Movie Making",
+          "bounty": "200",
+          "description": "Tired of the typical cinema?? Do you think that the time has arrived to come out of the clichéd movies and show the world what real movies are about? If you agree and want to show the world your direction skills, then the stage is set for you to bring a change by depicting your ideas with the help of this movie making competition. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Snapthrillz",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Photo Contest",
+          "bounty": "200",
+          "description": "In this digitalised world of today, the best way to make memories is to get clicked.Photography is one of the finest art of present world.Let’s cherish this art via the online photography competition Snapthrillz.From amateurs to professional photographers, every photography lover can participate.",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Musicaly",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Music",
+          "bounty": "200",
+          "description": "Online Musicaly making Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 6,
+      "category": "Music",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "Raga Music",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Hindi Band Competition",
           "bounty": "400",
-          "description": "Ever felt ",
+            "description": "Come witness an event where the flavours of each part of India find expression through some truly soulful music",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Unplugged",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Acoustic Band Competition",
+          "bounty": "300",
+          "description": "Witness the notes being charged up without power, when Alcheringa brings an event without electrical amplification.",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Voice Of Alcheringa",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Solo Singing Competition",
+          "bounty": "200",
+          "description": "This event is for the lone wolves unafraid to showcase their unique voices.We call out to all the nightingales to soar high this Alcheringa.May the most melodious master prevail!",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "Choir",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Group Singing Competition",
+          "bounty": "200",
+          "description": "Group Singing Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 7,
+      "category": "Literary",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "PARLIAMENTARY DEBATE",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "DEBATE",
+          "bounty": "2400",
+          "description": "  Do you feel the urge to speak up at every issue, do a logic check at every fact, present it with your own reasoning and stand for it till the end…? Wait no more, Alcheringa gives you an opportunity to let speak your words. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Poetry Competition",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Poetry",
+          "bounty": "300",
+          "description": "Poetry Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Mehfil-e-Alcheringa",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Shayari Competition",
+          "bounty": "100",
+          "description": "Shayari Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "Just A Minute",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Shayari Competition",
+          "bounty": "200",
+          "description": " JAM ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 5,
+          "item": "Zephyr",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Creative Writing Competition",
+          "bounty": "200",
+          "description": " Online Creative Writing Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 8,
+      "category": "Digital Dexterity",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "Custom Brush",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Digital Painting Competition",
+          "bounty": "200",
+          "description": " Do you believe you can find a Van Gogh inside you without holding the tip of the brush against the paper? Here is your chance to blend the cursor onto the screen and make the big picture speaks for itself. Set up your mood and composition and explore the translation of going from analog to digital ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Doodle Pad",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Doodle Designing Competition",
+          "bounty": "300",
+          "description": "You must have thought how a doodle artist would have started his creation, so this time we provide you a small element of a doodle and all you have to do is to complete that doodle (without editing the given element) from your own creativity ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Alcher Diva/Hunk",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Photo Contest",
+          "bounty": "100",
+          "description": "If you are the person who gives a thousand expressions in the same pose and likes getting pictures clicked of herself/himself, send us your best pictures and you may be honoured as the Alcher Diva or the Alcher Hunk of the year ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "Xpression",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Online Face Expression Competition",
+          "bounty": "200",
+          "description": " Are you an expression king or queen? ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 9,
+      "category": "Drama",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "Theatrix",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Stage Play Competition",
+          "bounty": "400",
+          "description": "The plethora of expressions, diversity of unimaginable characters, red of the blood all to impress you! Actors from the region will enliven the stage and perform their hearts out to stand victorious in this tough clash of theatre-acting. Welcome to the Stage play competition!",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Halla Bol",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Street Play Competition",
+          "bounty": "300",
+          "description": "The eloping beats of nagadas and dholkis filling the atmosphere with hysterical enthusiasm are sure to give one dose of live action and stunts amidst a live crowd. The thunderous performances have questions that need to be answered, and answers that will leave you baffled. Halla Bol (Nukkad Natak), a form of theatre which aims at spreading social awareness with style!",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Mono Drama",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Solo Acting Competition",
+          "bounty": "100",
+          "description": "It is a one-man/woman show where only one person has to act. Mono acting refers to a single actor playing multiple roles. There is only one actor on stage during mono acting",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        }
+      ]
+    },
+
+    {
+      "id": 10,
+      "category": "Art Talkies",
+      "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+      "item": [
+        {
+          "id": 1,
+          "item": "clay modelling",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Clay modelling Competition",
+          "bounty": "400",
+          "description": "Love to play with clay? This is your chance to make models with the help of clay. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 2,
+          "item": "Ink The Tee",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "T-shirt Painting Competition",
+          "bounty": "300",
+          "description": "T-shirt Painting Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 3,
+          "item": "Face Art",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Face Painting Competition",
+          "bounty": "100",
+          "description": "Face Painting Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 4,
+          "item": "Graffitti",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Graffiti Designing Competition",
+          "bounty": "100",
+          "description": "Graffiti are writing or drawings that have been scribbled, scratched or painted typically illicitly on a wall or other surface. ",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 5,
+          "item": "Live Sketching Competition",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Live Sketching Competition",
+          "bounty": "100",
+          "description": "The artist is a receptacle for emotions that come from all over the place:from the sky, from the earth, from a scrap of paper, from a spider’s web. -Pablo Picasso",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 6,
+          "item": "Rangoli",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Rangoli Making Competition",
+          "bounty": "100",
+          "description": "Rangoli Making Competition",
+          "rules": [
+            {
+              "id": 1,
+              "rule": "Every team "
+            }
+          ],
+          "prelims_theme": {
+            "header": "Seven ",
+            "theme": "The "
+          },
+          "final_theme": {
+            "header": "",
+            "theme": "This "
+          },
+          "judge_criteria": [
+            {
+              "id": 1,
+              "criteria": "Creativity "
+
+            },
+            {
+              "id": 2,
+              "criteria": "Standard of Design - 10%"
+            }]
+        },
+        {
+          "id": 7,
+          "item": "Who's It?",
+          "image": "https://i.ytimg.com/vi/kJ2dr9jAThY/maxresdefault.jpg",
+          "competition": "Portrait Designing Competition",
+          "bounty": "100",
+          "description": "The artist is a receptacle for emotions that come from all over the place:from the sky, from the earth, from a scrap of paper, from a spider’s web. -Pablo Picasso",
           "rules": [
             {
               "id": 1,

@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:onClick="backOption"
                 android:padding="8dp"
-                android:src="?arrow_back"/>
+                android:src="@drawable/ic_arrow_back"/>
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
@@ -68,7 +68,7 @@
                     android:focusable="true"
                     android:hint="Search"
                     android:textColorHint="@color/text_color_grey"
-                    android:textColor="?colorDarkMode" >
+                    android:textColor="@color/white" >
                     <requestFocus/>
                 </EditText>
             </RelativeLayout>
@@ -81,6 +81,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="?colorAccent"></LinearLayout>
-
+        android:background="?colorAccent"/>
 </LinearLayout>

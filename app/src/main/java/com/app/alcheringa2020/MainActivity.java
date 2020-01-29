@@ -2,6 +2,7 @@ package com.app.alcheringa2020;
 
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
@@ -10,12 +11,15 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,7 +32,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.app.alcheringa2020.authentication.Constants;
 import com.app.alcheringa2020.authentication.ProfileActivity;
+import com.app.alcheringa2020.authentication.RequestHandler;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.app.alcheringa2020.events.EventsFragment;
 import com.app.alcheringa2020.feed.FeedFragment;
@@ -46,16 +57,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.JsonObject;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -110,6 +129,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             }
         });
 
+
         search_image = findViewById(R.id.search_image);
         back_image = findViewById(R.id.back_image);
         noti_image = findViewById(R.id.noti_image);
@@ -151,11 +171,12 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                         @Override
                         public void onError(Exception e) {
                             Picasso.get().load(finalImg).placeholder(R.drawable.profile).into(profile_image);
-                            Bitmap bitmap = ((BitmapDrawable)profile_image.getDrawable()).getBitmap();
-                            saveBitmap(bitmap);
                         }
                     });
+                        BitmapDrawable drawable = (BitmapDrawable) profile_image.getDrawable();
+                        Bitmap bitmap = drawable.getBitmap();
 
+                        saveBitmap(bitmap);
                     }
                     else{
 
@@ -181,7 +202,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.flush();
             fos.close();
-            Toast.makeText(this, "SAVED at " + imagepath, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "SAVED", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }
@@ -260,8 +281,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 showHide();
                 break;
             case R.id.nav_schedule:
-                fragment = ScheduleFragment.newInstance(context);
-                currentFragment = "ScheduleFragment";
+                fragment = MyScheduleFragment.newInstance(context);
+                currentFragment = "MyScheduleFragment";
                 setFragment(fragment);
                 nav_title.setText(R.string.schedule);
                 showHide();
@@ -348,7 +369,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         }
 
         if (currentFragment.equalsIgnoreCase("ScheduleFragment")) {
-            fav_image.setVisibility(View.VISIBLE);
+//            fav_image.setVisibility(View.VISIBLE);
             noti_image.setVisibility(View.GONE);
         } else {
             fav_image.setVisibility(View.GONE);
@@ -365,17 +386,31 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     private void exitApp() {
         if (currentFragment.equalsIgnoreCase("FeedFragment")) {
             try {
-                new AlertDialog.Builder(this)
-                        .setTitle("Confirm")
-                        .setIcon(R.drawable.logo_dark)
-                        .setMessage("Do you really want to exit?")
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                finish();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, null).show();
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setContentView(R.layout.newcustom_layout);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
+                TextView cancel = dialog.findViewById(R.id.exit);
+                TextView ok=dialog.findViewById(R.id.ok);
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.cancel();
+                    }
+                });
+                              ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                        dialog.cancel();
+
+
+                    }
+                });
+                dialog.show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -393,4 +428,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         super.onResume();
         feedFragment();
     }
+
+
 }

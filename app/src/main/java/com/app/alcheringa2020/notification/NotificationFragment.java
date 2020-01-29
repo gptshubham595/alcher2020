@@ -109,6 +109,7 @@ public class NotificationFragment extends BaseFragment {
         fragment_container = container;
         context = getActivity().getApplicationContext();
         view = inflater.inflate(R.layout.recycler_layout, container, false);
+        try{
         notification_recycler = view.findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         notification_recycler.setLayoutManager(mLayoutManager);
@@ -116,6 +117,7 @@ public class NotificationFragment extends BaseFragment {
         notificationModelArrayList = new ArrayList<>();
         notificationDataAdapter = new NotificationDataAdapter(context, notificationModelArrayList);
         notification_recycler.setAdapter(notificationDataAdapter);
+
         Map<String,Object> mp=new HashMap<>();
         mp.put("name","mohan");
 
@@ -136,7 +138,8 @@ public class NotificationFragment extends BaseFragment {
                     Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });}catch (Exception e){e.printStackTrace();
+            Toast.makeText(context, "Some Error Occured", Toast.LENGTH_SHORT).show();}
 
 //        initData();
         return view;

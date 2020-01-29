@@ -32,6 +32,8 @@ import java.util.Map;
 
 import maes.tech.intentanim.CustomIntent;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 public class Feedback extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     AppCompatButton btnfeed;
     private ProgressDialog progressDialog;
@@ -64,12 +66,11 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
         tagspinner.setOnItemSelectedListener(this);
 
         List<String> categories = new ArrayList<String>();
-        categories.add("Automobile");
-        categories.add("Business Services");
-        categories.add("Computers");
-        categories.add("Education");
-        categories.add("Personal");
-        categories.add("Travel");
+        categories.add("General");
+        categories.add("Technical");
+        categories.add("Competition");
+        categories.add("Festival");
+        categories.add("Payment");
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
 
@@ -81,12 +82,11 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
-    private void sendfeed(final String email, String sub, String textstr, final String tag) {
+    private void sendfeed(final String email, String sub, final String textstr, final String tag) {
 //        Toast.makeText(this, "Sending", Toast.LENGTH_SHORT).show();
         progressDialog.setMessage("Sending...");
         progressDialog.show();
 
-        final String text = sub + " " + textstr;
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Constants.URL_Feed,
                 new Response.Listener<String>() {
@@ -96,7 +96,7 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-
+                            Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_LONG).show();
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
 
                             if (!jsonObject.getBoolean("error")) {
@@ -115,14 +115,14 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("email", email);
-                params.put("text", text);
+                params.put("text", textstr);
                 params.put("tag", tag);
                 params.put("submit", "submit");
 
