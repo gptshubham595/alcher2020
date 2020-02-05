@@ -7,6 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.app.alcheringa2020.authentication.SharedPrefManager;
 
 public class Developer extends AppCompatActivity {
     LinearLayout shubham, mohan, siddharth,priyanshu;
@@ -51,5 +54,21 @@ public class Developer extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        exitApp();
+    }
+
+    private void exitApp() {
+//        Toast.makeText(this, "BACK", Toast.LENGTH_SHORT).show();
+        try{
+            SharedPrefManager.getInstance(this).fragmentwhere("support");}catch (Exception e){e.printStackTrace();}
+        startActivity(new Intent(this,MainActivity.class));
+//        Toast.makeText(this, ""+SharedPrefManager.getInstance(this).getFragmentName(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void backOption(View view) {
+        exitApp();
     }
 }

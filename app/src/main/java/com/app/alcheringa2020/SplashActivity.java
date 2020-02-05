@@ -6,7 +6,9 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -14,6 +16,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.app.alcheringa2020.authentication.FBLogin;
 import com.app.alcheringa2020.authentication.LoginActivity;
+import com.app.alcheringa2020.authentication.SharedPrefManager;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.google.firebase.FirebaseApp;
 
@@ -26,6 +29,9 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+            try{SharedPrefManager.getInstance(this).fragmentwhere("feed");}catch (Exception e){e.printStackTrace();}
+
+            gethash();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -33,6 +39,14 @@ public class SplashActivity extends BaseActivity {
 
             }
         }, 3000);
+    }
+
+    private void gethash() {
+        byte[] sha1 = {
+                        (byte)0xB4, 0x14, (byte)0xD7, (byte)0xC4, (byte)0xD3, (byte)0xCB, (byte)0x8B, (byte)0xC2, (byte)0x68, (byte)0x8C,
+                        (byte)0xE6, (byte)0x87, (byte)0x55, (byte)0x23, (byte)0xE0, (byte)0x31, (byte)0x3A  , (byte)0x49, (byte)0x8F, (byte)0xFC
+                      };
+        Log.d("KeyHashGooglePlay:",Base64.encodeToString(sha1, Base64.NO_WRAP));
     }
 
     private void mainMethod() {

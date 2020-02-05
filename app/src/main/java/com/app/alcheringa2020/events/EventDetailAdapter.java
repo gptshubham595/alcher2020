@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +37,7 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView child_textView;
-        RoundedImageView item_image;
+        RoundedImageView item_image,back;
         EventListner eventListner;
         int eventId;
 
@@ -47,6 +46,7 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
             this.eventListner = eventListner;
             child_textView = (TextView) v.findViewById(R.id.textViewTitle);
             item_image = (RoundedImageView) v.findViewById(R.id.imageView);
+
         }
 
         @Override
@@ -79,11 +79,31 @@ public class EventDetailAdapter extends RecyclerView.Adapter<EventDetailAdapter.
                     Picasso.get().load(itemModelArrayList.get(position).getItemImage()).into(holder.item_image);
                 }
             });
-        }catch (Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         holder.child_textView.setText(itemModelArrayList.get(position).getItem());
         holder.eventId = itemModelArrayList.get(position).getItemId();
         Typeface typeface = Typeface.createFromAsset(holder.itemView.getContext().getAssets(), "font/exo_regular.ttf");
         holder.child_textView.setTypeface(typeface);
+
+        holder.item_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, itemModelArrayList.get(position).getItem(), Toast.LENGTH_SHORT).show();
+                try {
+                    EventActivity.descriptionTxt.setText(itemModelArrayList.get(position).getItemDescription());
+                    EventActivity.competitionTxt.setText(itemModelArrayList.get(position).getItem());
+                    EventActivity.bountyTxt.setText("Bounties - " +itemModelArrayList.get(position).getItemBounty());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(mContext, "ERROR", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     @Override

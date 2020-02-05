@@ -16,6 +16,9 @@ public class SharedPrefManager {
     private static final String KEY_VERIFY = "invalid";
 
 
+
+    private static final String KEY_FRAGMENT = "feed";
+
     private SharedPrefManager(Context context) {
         mCtx = context;
 
@@ -27,7 +30,15 @@ public class SharedPrefManager {
         }
         return mInstance;
     }
+    public boolean fragmentwhere(String fragment) {
 
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_FRAGMENT, fragment);
+        editor.apply();
+
+        return true;
+    }
     public boolean isLogin(int id, String username, String email) {
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -72,6 +83,11 @@ public class SharedPrefManager {
     public String getUsername() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USERNAME, null);
+    }
+
+    public String getFragmentName() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_FRAGMENT, null);
     }
 
     public String getUserEmail() {

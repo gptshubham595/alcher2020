@@ -25,7 +25,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -33,6 +32,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.app.alcheringa2020.authentication.ProfileActivity;
+import com.app.alcheringa2020.authentication.SharedPrefManager;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.app.alcheringa2020.events.EventsFragment;
 import com.app.alcheringa2020.feed.FeedFragment;
@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         db.setFirestoreSettings(settings);
 
         Context context;
-        dialog=new ProgressDialog(this);
+        dialog = new ProgressDialog(this);
 
         reference = FirebaseDatabase.getInstance().getReference("mohan");
 
@@ -126,22 +126,32 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         navigationView = findViewById(R.id.bottomNavigationView);
         add_image = findViewById(R.id.add_image);
         navigationView.setOnNavigationItemSelectedListener(this);
-        fragment = FeedFragment.newInstance(this);
-        currentFragment = "FeedFragment";
-        setFragment(fragment);
 
-        try{
-            String SUPPORT=getIntent().getStringExtra("SUPPORT");
-            if(SUPPORT.equals("Y")){goatsupport();}
+        try {
+            String name = SharedPrefManager.getInstance(this).getFragmentName();
+//            Toast.makeText(this, "Name="+name, Toast.LENGTH_SHORT).show();
+            if (name.equals("support")) {
+//                Toast.makeText(this, "SUPPORT", Toast.LENGTH_SHORT).show();
+                supportFragment();
+            }
 
-//            String SUPPORT=getIntent().getStringExtra("SUPPORT");
-//            if(SUPPORT.equals("Y")){goatsupport();}
-//
-//            String SUPPORT=getIntent().getStringExtra("SUPPORT");
-//            if(SUPPORT.equals("Y")){goatsupport();}
+            if (name.equals("feed")) {
+//                Toast.makeText(this, "SUPPORT", Toast.LENGTH_SHORT).show();
+                feedFragment();
+            }
 
+            if (name.equals("events")) {
+//                Toast.makeText(this, "SUPPORT", Toast.LENGTH_SHORT).show();
+                eventsFragment();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+//            Toast.makeText(MainActivity.this, "Feed", Toast.LENGTH_SHORT).show();
+            fragment = FeedFragment.newInstance(this);
+            currentFragment = "FeedFragment";
+            setFragment(fragment);
+        }
 
-        }catch (Exception e){e.printStackTrace();}
 
         initListner();
 
@@ -255,24 +265,22 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             e.printStackTrace();
         }
     }
-    public  void gotatfeed(){feedFragment();}
-    public  void goatevent(){
+
+    private void eventsFragment() {
         fragment = EventsFragment.newInstance(context);
         currentFragment = "EventsFragment";
         setFragment(fragment);
         nav_title.setText(R.string.events);
         showHide();
     }
-    public  void goatschedule(){ fragment = MyScheduleFragment.newInstance(context);
-        currentFragment = "MyScheduleFragment";
-        setFragment(fragment);
-        nav_title.setText(R.string.schedule);
-        showHide();}
-    public  void goatsupport(){fragment = SupportFragment.newInstance(context);
+
+    private void supportFragment() {
+        fragment = SupportFragment.newInstance(context);
         currentFragment = "SupportFragment";
         setFragment(fragment);
         nav_title.setText(R.string.support);
-        showHide();}
+        showHide();
+    }
 
     public void setFragment(Fragment fragment) {
         if (fragment != null) {
@@ -288,9 +296,19 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         Log.d(TAG, "item id: " + menuItem.getItemId());
         switch (menuItem.getItemId()) {
             case R.id.nav_feed:
+                try {
+                    SharedPrefManager.getInstance(this).fragmentwhere("feed");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 feedFragment();
                 break;
             case R.id.nav_events:
+                try {
+                    SharedPrefManager.getInstance(this).fragmentwhere("events");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 fragment = EventsFragment.newInstance(context);
                 currentFragment = "EventsFragment";
                 setFragment(fragment);
@@ -305,6 +323,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 showHide();
                 break;
             case R.id.nav_support:
+                try {
+                    SharedPrefManager.getInstance(this).fragmentwhere("support");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 fragment = SupportFragment.newInstance(context);
                 currentFragment = "SupportFragment";
                 setFragment(fragment);
@@ -421,7 +444,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        finish();
+//                        finish();
+                        ActivityCompat.finishAffinity(MainActivity.this);
                         dialog.cancel();
 
 
@@ -443,7 +467,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     protected void onResume() {
         super.onResume();
-        feedFragment();
     }
 
 

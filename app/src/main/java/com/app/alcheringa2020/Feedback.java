@@ -32,8 +32,6 @@ import java.util.Map;
 
 import maes.tech.intentanim.CustomIntent;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
 public class Feedback extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     AppCompatButton btnfeed;
     private ProgressDialog progressDialog;
@@ -146,7 +144,6 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
         String substr = subject.getText().toString();
         String textstr = text.getText().toString();
 
-
         // Showing selected spinner item
 //        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
@@ -154,5 +151,24 @@ public class Feedback extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    @Override
+    public void onBackPressed() {
+        exitApp();
+    }
+
+    private void exitApp() {
+//        Toast.makeText(this, "BACK", Toast.LENGTH_SHORT).show();
+        try {
+            SharedPrefManager.getInstance(this).fragmentwhere("support");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            startActivity(new Intent(Feedback.this,MainActivity.class));
+//            Toast.makeText(this, ""+SharedPrefManager.getInstance(this).getFragmentName(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void backOption(View view) {
+        exitApp();
     }
 }

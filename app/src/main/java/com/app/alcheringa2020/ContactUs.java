@@ -15,6 +15,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.app.alcheringa2020.authentication.SharedPrefManager;
 
 public class ContactUs extends AppCompatActivity {
     LinearLayout hemant, shashank, kartikey;
@@ -57,9 +60,11 @@ public class ContactUs extends AppCompatActivity {
     }
 
     private void exitApp() {
-        Intent i=new Intent(this,MainActivity.class);
-        i.putExtra("SUPPORT","Y");
-        startActivity(i);
+//        Toast.makeText(this, "BACK", Toast.LENGTH_SHORT).show();
+        try{
+            SharedPrefManager.getInstance(this).fragmentwhere("support");}catch (Exception e){e.printStackTrace();}
+        startActivity(new Intent(this,MainActivity.class));
+//        Toast.makeText(this, ""+SharedPrefManager.getInstance(this).getFragmentName(), Toast.LENGTH_SHORT).show();
     }
 
     public void backOption(View view) {

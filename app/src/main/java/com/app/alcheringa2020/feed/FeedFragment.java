@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class FeedFragment extends BaseFragment {
     private feedAdapter adapter;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private ArrayList<feedClass> itemList;
-    RoundedImageView h1,h2,h3,h4,h5;
+    RoundedImageView h1,h2,h3,h4;
     ProgressDialog dialog;
 
     public FeedFragment() {
@@ -72,95 +73,92 @@ public class FeedFragment extends BaseFragment {
 
         view = inflater.inflate(R.layout.fragment_feed, container, false);
 
-        h1= view.findViewById(R.id.h1);
-        h2= view.findViewById(R.id.h2);
-        h3=view.findViewById(R.id.h3);
-        h4= view.findViewById(R.id.h4);
-        h5= view.findViewById(R.id.h5);
 
-        h1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.highligh);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-                RoundedImageView img=dialog.findViewById(R.id.titleimage);
-                img.setImageResource(R.drawable.h1);
-
-                dialog.show();
-
-            }
-        });
+        try {
+            h1 = view.findViewById(R.id.h1);
+            h2 = view.findViewById(R.id.h2);
+            h3 = view.findViewById(R.id.h3);
+            h4 = view.findViewById(R.id.h4);
 
 
-        h2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.highligh);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    h1.setImageResource(R.drawable.h1);
+                    h2.setImageResource(R.drawable.h2);
+                    h3.setImageResource(R.drawable.h3);
+                    h4.setImageResource(R.drawable.h4);
+               }
+            },800);
 
-                RoundedImageView img=dialog.findViewById(R.id.titleimage);
-                img.setImageResource(R.drawable.h2);
+            h1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Dialog dialog = new Dialog(getContext());
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.highligh);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-                dialog.show();
+                    RoundedImageView img = dialog.findViewById(R.id.titleimage);
+                    img.setImageResource(R.drawable.h1);
 
-            }
-        });
+                    dialog.show();
 
-        h3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.highligh);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                }
+            });
 
-                RoundedImageView img=dialog.findViewById(R.id.titleimage);
-                img.setImageResource(R.drawable.h3);
 
-                dialog.show();
+            h2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Dialog dialog = new Dialog(getContext());
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.highligh);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-            }
-        });
+                    RoundedImageView img = dialog.findViewById(R.id.titleimage);
+                    img.setImageResource(R.drawable.h2);
 
-        h4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.highligh);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                RoundedImageView img=dialog.findViewById(R.id.titleimage);
-                img.setImageResource(R.drawable.h4);
-                dialog.show();
-            }
-        });
+                    dialog.show();
 
-        h5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Dialog dialog = new Dialog(getContext());
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.highligh);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                }
+            });
 
-                RoundedImageView img=dialog.findViewById(R.id.titleimage);
-                img.setImageResource(R.drawable.h5);
+            h3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Dialog dialog = new Dialog(getContext());
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.highligh);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-                dialog.show();
+                    RoundedImageView img = dialog.findViewById(R.id.titleimage);
+                    img.setImageResource(R.drawable.h3);
 
-            }
-        });
+                    dialog.show();
 
+                }
+            });
+
+            h4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Dialog dialog = new Dialog(getContext());
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.highligh);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                    RoundedImageView img = dialog.findViewById(R.id.titleimage);
+                    img.setImageResource(R.drawable.h4);
+                    dialog.show();
+                }
+            });
+
+
+        }catch (Exception e){e.printStackTrace();}
 
         databaseReference = databaseReference.child("feed");
         databaseReference.keepSynced(true);

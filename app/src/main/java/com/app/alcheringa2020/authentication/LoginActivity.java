@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
+            try{SharedPrefManager.getInstance(this).fragmentwhere("feed");}catch (Exception e){e.printStackTrace();}
             startActivity(new Intent(this, MainActivity.class));
             return;
         }

@@ -1,32 +1,22 @@
 package com.app.alcheringa2020.events;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
-import com.app.alcheringa2020.authentication.Constants;
-import com.app.alcheringa2020.authentication.RequestHandler;
+import com.app.alcheringa2020.authentication.SharedPrefManager;
 import com.app.alcheringa2020.base.BaseActivity;
 import com.app.alcheringa2020.events.model.ItemModel;
 import com.app.alcheringa2020.events.model.JudgeModel;
@@ -34,13 +24,7 @@ import com.app.alcheringa2020.events.model.ProgrammeModel;
 import com.app.alcheringa2020.events.model.RuleModel;
 import com.app.alcheringa2020.external.AppConstants;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.app.alcheringa2020.events.EventsDataModel.programmeModelArrayList;
 
@@ -48,11 +32,10 @@ import static com.app.alcheringa2020.events.EventsDataModel.programmeModelArrayL
  * Created by Jiaur Rahman on 04-Jan-20.
  */
 public class EventActivity extends BaseActivity implements EventListner {
+    public static TextView text_title, competitionTxt, bountyTxt, descriptionTxt, prelimsDescription, finalsDescription;
     String TAG = EventActivity.class.getSimpleName();
-
     int programmeID;
-    String categoryName, eventName;
-    TextView text_title, competitionTxt, bountyTxt, descriptionTxt, prelimsDescription, finalsDescription;
+    String categoryName, eventName, compname, descname, bountyname;
     RecyclerView event_data, ruleRecycler, judgeRecycler;
     LinearLayout ruleLyt, prelimsLyt, finalsLyt, judgeLyt;
     int eventId;
@@ -103,26 +86,41 @@ public class EventActivity extends BaseActivity implements EventListner {
         try {
             Intent intent = getIntent();
             programmeID = intent.getIntExtra(AppConstants.PRO_ID, 0);
+
+            //TOP CLASSAPRT
             categoryName = intent.getStringExtra(AppConstants.PRO_CATEGORY);
+
+            //RockMusic
             eventName = intent.getStringExtra(AppConstants.PRO_EVENT);
+
+            descname = intent.getStringExtra("DESC");
+            compname = intent.getStringExtra("COMP");
+            bountyname = intent.getStringExtra("BOUNTY");
+            //CA , ROP
             Log.d(TAG, "pager id: " + programmeID + " " + categoryName + " " + eventName);
-            text_title.setText(categoryName);
-            toolbar(eventName);
+            //
+            text_title.setText(compname);
+
+            toolbar(categoryName);
             itemModelArrayList = new ArrayList<>();
             for (int i = 0; i < programmeModelArrayList(context).size(); i++) {
                 ProgrammeModel programmeModel = programmeModelArrayList(context).get(i);
+
                 if (programmeModel.getProId() == programmeID) {
                     itemModelArrayList = programmeModel.getItemModelArrayList();
                     for (int j = 0; j < itemModelArrayList.size(); j++) {
                         eventId = itemModelArrayList.get(j).getItemId();
+
                     }
                     break;
                 }
             }
+
             Log.d(TAG, "item data: " + itemModelArrayList.size());
             EventDetailAdapter itemAdapter = new EventDetailAdapter(context, itemModelArrayList, this);
             event_data.setAdapter(itemAdapter);
             viewData(eventId);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -191,11 +189,18 @@ public class EventActivity extends BaseActivity implements EventListner {
         try {
             for (int i = 0; i < itemModelArrayList.size(); i++) {
                 ItemModel itemModel = itemModelArrayList.get(i);
-                Log.d("ITEMMODELARRAY",""+itemModel.getItemCompetition());
+                Log.d("ITEMMODELARRAY", "" + itemModel.getItemCompetition());
+
                 if (event_id == itemModel.getItemId()) {
-                    competitionTxt.setText(itemModel.getItemCompetition());
-                    bountyTxt.setText("Bounties - " + itemModel.getItemBounty());
-                    descriptionTxt.setText(itemModel.getItemDescription());
+
+//                    competitionTxt.setText(itemModel.getItemCompetition());
+//                    bountyTxt.setText("Bounties - " + itemModel.getItemBounty());
+//                    descriptionTxt.setText(itemModel.getItemDescription());
+
+                    competitionTxt.setText(eventName);
+                    bountyTxt.setText("Bounties - " + bountyname);
+                    descriptionTxt.setText(descname);
+
                     prelimsDescription.setText(Html.fromHtml("<h2>" + itemModel.getPre_header() + "</h2>") + " " + itemModel.getPre_theme());
                     finalsDescription.setText(Html.fromHtml("<h2>" + itemModel.getFinal_header() + "</h2>") + " " + itemModel.getFinal_theme());
                     ArrayList<RuleModel> ruleModelArrayList = new ArrayList<>();
@@ -222,12 +227,32 @@ public class EventActivity extends BaseActivity implements EventListner {
 
 
             }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
+    @Override
+    public void onBackPressed() {
+        exitApp();
+    }
 
+    private void exitApp() {
+//        Toast.makeText(this, "BACK", Toast.LENGTH_SHORT).show();
+        try {
+            SharedPrefManager.getInstance(this).fragmentwhere("events");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        startActivity(new Intent(this, MainActivity.class));
+//        Toast.makeText(this, ""+SharedPrefManager.getInstance(this).getFragmentName(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void backOption(View view) {
+        exitApp();
+    }
 
 }

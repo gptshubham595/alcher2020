@@ -62,7 +62,22 @@
         android:layout_below="@id/email"
         android:background="@drawable/shape"
         android:backgroundTint="#Eab045"
-        android:text="LOGIN"
+        android:text="VERIFY"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonLogin2"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="40dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@id/email"
+        android:background="@drawable/shape"
+        android:backgroundTint="#E9372752"
+        android:text="Let's Login"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
@@ -70,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonLogin"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -83,7 +98,6 @@
             android:text="Resend OTP"
             android:textColor="@color/white"
             android:textStyle="bold" />
-
     </LinearLayout>
 
 </RelativeLayout>

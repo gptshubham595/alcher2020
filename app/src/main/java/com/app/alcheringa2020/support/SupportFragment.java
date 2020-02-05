@@ -1,16 +1,21 @@
 package com.app.alcheringa2020.support;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.app.alcheringa2020.ContactUs;
 import com.app.alcheringa2020.Developer;
 import com.app.alcheringa2020.Feedback;
+import com.app.alcheringa2020.MainActivity;
 import com.app.alcheringa2020.R;
 import com.app.alcheringa2020.base.BaseFragment;
 
@@ -53,7 +58,9 @@ public class SupportFragment extends BaseFragment {
         feedback_rlt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(context, Feedback.class));
+            Intent i=new Intent(context, Feedback.class);
+                startActivityForResult(i, 1);
+
             }
         });
         contact_rlt.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +87,7 @@ public class SupportFragment extends BaseFragment {
 //
 //            }
 //        });
+
         return view;
     }
 

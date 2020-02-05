@@ -2,6 +2,7 @@ package com.app.alcheringa2020.authentication;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -29,7 +30,7 @@ import java.util.Map;
 import maes.tech.intentanim.CustomIntent;
 
 public class Verify extends AppCompatActivity {
-    AppCompatButton buttonlogin;
+    AppCompatButton buttonlogin,buttonlogin2;
     TextView sendagain;
     EditText editTextOtp;
     private ProgressDialog progressDialog;
@@ -41,6 +42,7 @@ public class Verify extends AppCompatActivity {
         editTextOtp = findViewById(R.id.editTextOtp);
         sendagain = findViewById(R.id.sendOtpAgain);
         buttonlogin = findViewById(R.id.buttonLogin);
+        buttonlogin2 = findViewById(R.id.buttonLogin2);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
@@ -58,6 +60,22 @@ public class Verify extends AppCompatActivity {
             }
         });
 
+
+        buttonlogin2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final String otp = editTextOtp.getText().toString().trim();
+                if (TextUtils.isEmpty(otp) || otp.length() < 6) {
+                    editTextOtp.setError("Enter Correct OTP");
+                } else {
+                    Intent i = new Intent(Verify.this, LoginActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                    CustomIntent.customType(Verify.this, "fadein-to-fadeout");
+                }
+            }
+        });
         sendagain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,12 +110,11 @@ public class Verify extends AppCompatActivity {
                                                 jsonObject.getString("verified")
                                         );
 
-                                if(jsonObject.getString("message").equals("Verified")){
                                     Intent i = new Intent(Verify.this, LoginActivity.class);
                                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(i);
                                     CustomIntent.customType(Verify.this, "fadein-to-fadeout");
-                                }
+
                             } else {
                                 Toast.makeText(Verify.this, "Some Error Occured", Toast.LENGTH_SHORT).show();
                             }

@@ -62,7 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/alcher"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/noti_rlt"
                 app:layout_constraintStart_toEndOf="@+id/home_rlt"

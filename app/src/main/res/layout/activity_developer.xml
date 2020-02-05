@@ -265,6 +265,7 @@
                             android:textSize="18sp"
                             android:textColor="@color/white"
                             android:layout_height="wrap_content"/>
+
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
